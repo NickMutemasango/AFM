@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 interface Leader {
   id: number;
   name: string;
@@ -63,7 +65,7 @@ const LeadersGrid: React.FC<LeadersGridProps> = ({ limit }) => {
           <div className="relative z-10 mb-6">
             <div className="relative inline-block">
               <div className="w-28 h-28 rounded-full border-4 border-white shadow-2xl overflow-hidden mx-auto">
-                <img
+                <Image
                   src={leader.image}
                   alt={leader.name}
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"

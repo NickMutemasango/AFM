@@ -56,10 +56,10 @@
 
 
 import React from "react";
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 
 interface UpcomingEventsProps {
-  imageSrc: any;
+  imageSrc: StaticImageData;
 }
 
 const UpcomingEvents: React.FC<UpcomingEventsProps> = ({ imageSrc }) => {

@@ -2,7 +2,6 @@ import React from "react";
 import Text from "../components/Text";
 import Image from "next/image";
 import Hero from "@/public/Images/Sermon.png";
-import Product from "../components/Product";
 import Search from "../components/Search";
 import UpcomingEvents from "../components/UpcomingEvents";
 import Event1 from "@/public/Images/Event1.png";

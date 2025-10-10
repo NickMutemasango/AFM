@@ -7,8 +7,7 @@ import Vision from "../../public/Images/Vision.svg";
 import Ab1 from "../../public/Images/Ab1.svg";
 import Ab2 from "../../public/Images/Ab2.png";
 import Ab3 from "../../public/Images/Ab3.svg";
-import Mission from "../../public/Images/Mission.png";
-import Vission from "../../public/Images/Vision.svg";
+import Mission from "../../public/Images/Mission.png"
 import Motto from "../../public/Images/Moto.png";
 import Values from "../../public/Images/Values.png";
 

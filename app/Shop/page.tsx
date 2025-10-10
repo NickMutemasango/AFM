@@ -3,7 +3,6 @@ import Text from "../components/Text";
 import Image from "next/image";
 import Hero from "@/public/Images/Shop.png";
 import PersonalInfo from "../components/PersonalInfo";
-import InputField from "../components/InputField";
 import FormSubmission from "../components/FormSubmission";
 
 const page = () => {

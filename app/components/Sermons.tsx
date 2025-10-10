@@ -1,9 +1,9 @@
 import React from 'react'
-import Image from 'next/image'
+import Image, { StaticImageData } from 'next/image'
 import DefaultSermon from '@/public/Images/Sermon1.png'
 
 interface SermonsProps {
-  imageSrc?: any;
+  imageSrc?: StaticImageData;
   title: string;
   speaker: string;
   views: string;
