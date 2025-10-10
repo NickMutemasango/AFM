@@ -72,7 +72,7 @@ const page = () => {
 
         <div className="flex justify-center pt-10 pb-4 text-[#313131]">
           <p className="text-[14px] lg:text-[13px] xl:text-[15px]">
-            Stuck on the form?<span className="underline cursor-pointer">Let's call you</span>
+           Stuck on the form?<span className="underline cursor-pointer">Let&apos;s call you</span>
           </p>
         </div>
       </div>

@@ -27,7 +27,7 @@ const page = () => {
           </h2>
           <p className="text-[14px] lg:text-[13px] xl:text-[15px]">
             Whether you have questions, need prayer, or want to learn more about
-            our ministry, we're here for you. Feel free to get in touch, stop by
+          our ministry, we&apos;re here for you. Feel free to get in touch, stop by
             during one of our services, or follow us online. Let’s walk this
             journey of faith together.
           </p>
