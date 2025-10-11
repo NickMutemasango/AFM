@@ -378,15 +378,15 @@ export default function Home() {
               ].map((item, index) => (
                 <motion.div 
                   key={index}
-                  className="flex flex-col gap-3 p-6 rounded-xl transition-all duration-500 hover:scale-105 hover:bg-white hover:shadow-2xl border border-transparent hover:border-gray-200 group cursor-pointer"
+                  className="flex flex-col gap-3 rounded-xl transition-all duration-500  border border-transparent group cursor-pointer"
                   variants={cardAnimation}
                   custom={index}
                 >
-                  <div className="w-12 h-12 bg-gradient-to-br from-[#0747A1] to-[#D4AA49] rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform duration-500">
+                  <div className="w-12 h-12  rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform duration-500">
                     <Image 
                       src={item.src} 
                       alt={item.title}
-                      className="transition-transform duration-500 group-hover:scale-125" 
+                      className="transition-transform duration-500 " 
                     />
                   </div>
                   <h4 className="font-semibold text-lg group-hover:text-[#0747A1] transition-colors duration-300">
@@ -450,7 +450,7 @@ export default function Home() {
 
           {/* Events container slides from right */}
           <motion.div 
-            className="bg-gradient-to-br from-[#055594] via-[#0747A1] to-[#063a87] text-white px-6 py-10 rounded-2xl transition-all duration-700 hover:shadow-2xl hover:scale-[1.02] group"
+            className="bg-gradient-to-br from-[#055594] via-[#0747A1] to-[#063a87] text-white px-6 py-5 rounded-2xl transition-all duration-700 hover:shadow-2xl hover:scale-[1.02] group"
             variants={slideFromRight}
           >
             <h2 className="tracking-wider pb-6 text-[20px] md:text-[24px] font-light">
@@ -499,14 +499,14 @@ export default function Home() {
             </motion.p>
             
             <motion.h2 
-              className="font-medium text-[24px] md:text-3xl text-center w-[90%] md:w-[60%] lg:w-[40%] leading-tight"
+              className="font-medium text-[24px] md:text-3xl text-center w-[90%] md:w-[60%] lg:w-[30%] leading-tight"
               variants={slideFromLeft}
             >
               Help us Raise In-order to raise those in-need
             </motion.h2>
             
             <motion.p 
-              className="text-sm text-center text-[14px] lg:text-[13px] xl:text-[15px] pb-2 w-full md:w-[60%] lg:w-[40%] opacity-90 leading-relaxed"
+              className="text-sm text-center text-[14px] lg:text-[13px] xl:text-[15px] pb-2 w-full md:w-[60%] lg:w-[35%] opacity-90 leading-relaxed"
               variants={slideFromLeft}
             >
               Lorem ipsum dolor sit amet consectetur adipiscing elit dolor
@@ -516,11 +516,11 @@ export default function Home() {
             
             {/* Button slides from right */}
             <motion.button 
-              className="bg-gradient-to-r from-[#0747A1] to-[#D4AA49] w-[60%] md:w-[25%] py-3 rounded-full transition-all duration-500 hover:scale-110 hover:shadow-2xl transform font-medium relative overflow-hidden group"
+              className="bg-[#0747A1] w-[60%] md:w-[25%] py-3 rounded-full transition-all duration-500 hover:scale-110 hover:shadow-2xl transform font-medium relative overflow-hidden group"
               variants={slideFromRight}
             >
               <span className="relative z-10">Give now</span>
-              <div className="absolute inset-0 bg-gradient-to-r from-[#D4AA49] to-[#0747A1] opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              <div className="absolute inset-0 cursor-pointer opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
             </motion.button>
           </motion.div>
         </div>
