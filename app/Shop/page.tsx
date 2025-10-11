@@ -37,7 +37,7 @@ const page = () => {
         </div>
       </div>
 
-      <div className="pt-8 shadow-md rounded-md md:px-6 lg:w-[80%] mb-10">
+      <div className="pt-8 w-full px-3 shadow-md rounded-md md:px-6 lg:w-[80%] mb-10">
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
           <PersonalInfo
             title="Contact"
