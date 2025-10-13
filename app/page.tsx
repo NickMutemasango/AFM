@@ -159,7 +159,6 @@
 //   );
 // }
 
-
 "use client";
 
 import Image from "next/image";
@@ -173,44 +172,45 @@ import Vision from "../public/Images/Vision.svg";
 import Mission from "../public/Images/Mission.png";
 import Values from "../public/Images/Values.png";
 import Motto from "../public/Images/Moto.png";
+import Link from "next/link";
 import Events from "./components/Events";
 import HomeBackground from "../public/Images/Help.svg";
 
 // Animation variants for sliding from sides
 const slideFromLeft: Variants = {
   hidden: { opacity: 0, x: -100 },
-  visible: { 
-    opacity: 1, 
+  visible: {
+    opacity: 1,
     x: 0,
-    transition: { duration: 0.8, ease: "easeOut" }
-  }
+    transition: { duration: 0.8, ease: "easeOut" },
+  },
 };
 
 const slideFromRight: Variants = {
   hidden: { opacity: 0, x: 100 },
-  visible: { 
-    opacity: 1, 
+  visible: {
+    opacity: 1,
     x: 0,
-    transition: { duration: 0.8, ease: "easeOut" }
-  }
+    transition: { duration: 0.8, ease: "easeOut" },
+  },
 };
 
 const slideFromBottom: Variants = {
   hidden: { opacity: 0, y: 80 },
-  visible: { 
-    opacity: 1, 
+  visible: {
+    opacity: 1,
     y: 0,
-    transition: { duration: 0.8, ease: "easeOut" }
-  }
+    transition: { duration: 0.8, ease: "easeOut" },
+  },
 };
 
 const scaleIn: Variants = {
   hidden: { opacity: 0, scale: 0.8 },
-  visible: { 
-    opacity: 1, 
+  visible: {
+    opacity: 1,
     scale: 1,
-    transition: { duration: 0.6, ease: "easeOut" }
-  }
+    transition: { duration: 0.6, ease: "easeOut" },
+  },
 };
 
 const staggerContainer: Variants = {
@@ -218,18 +218,18 @@ const staggerContainer: Variants = {
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.2
-    }
-  }
+      staggerChildren: 0.2,
+    },
+  },
 };
 
 const cardAnimation: Variants = {
   hidden: { opacity: 0, y: 60 },
-  visible: { 
-    opacity: 1, 
+  visible: {
+    opacity: 1,
     y: 0,
-    transition: { duration: 0.6, ease: "easeOut" }
-  }
+    transition: { duration: 0.6, ease: "easeOut" },
+  },
 };
 
 export default function Home() {
@@ -245,7 +245,10 @@ export default function Home() {
   const videoInView = useInView(videoRef, { once: true, margin: "-50px" });
   const aboutInView = useInView(aboutRef, { once: true, margin: "-50px" });
   const eventsInView = useInView(eventsRef, { once: true, margin: "-50px" });
-  const donationInView = useInView(donationRef, { once: true, margin: "-50px" });
+  const donationInView = useInView(donationRef, {
+    once: true,
+    margin: "-50px",
+  });
 
   return (
     <div className="overflow-x-hidden">
@@ -253,7 +256,7 @@ export default function Home() {
       <div ref={heroRef} className="xl:max-w-5xl lg:max-w-4xl mx-auto">
         <div className="grid grid-cols-1 px-3 md:px-6 lg:px-0 py-10 lg:py-5 lg:grid-cols-2 gap-7">
           {/* Left side content - slides from left */}
-          <motion.div 
+          <motion.div
             className="flex flex-col gap-4 justify-center"
             initial="hidden"
             animate={heroInView ? "visible" : "hidden"}
@@ -266,16 +269,16 @@ export default function Home() {
                 lineClassName="bg-[#D4AA49]"
               />
             </motion.div>
-            
-            <motion.h2 
+
+            <motion.h2
               className="text-[#434147] font-semibold text-[30px] xl:text-[40px]"
               variants={slideFromLeft}
               transition={{ delay: 0.1 }}
             >
               A vibrant and spirit-filled church community
             </motion.h2>
-            
-            <motion.p 
+
+            <motion.p
               className="text-[#434147]"
               variants={slideFromLeft}
               transition={{ delay: 0.2 }}
@@ -284,40 +287,44 @@ export default function Home() {
               posuere vel venenatis eu sit massa volutpat massa rhoncus odio
               feugiat tellus, elit massa sed.
             </motion.p>
-            
-            <motion.div 
+
+            <motion.div
               className="flex gap-4"
               variants={slideFromLeft}
               transition={{ delay: 0.3 }}
             >
-              <button className="bg-[#0747A1] text-white px-6 py-3 rounded-3xl hover:bg-[#063a87] transition-all duration-500 ease-out hover:scale-110 transform text-[15px] shadow-lg hover:shadow-xl relative overflow-hidden group">
-                <span className="relative z-10">Contact Us</span>
-                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
-              </button>
-              <button className="border-[2px] border-[#0747A1] text-[15px] text-[#0747A1] px-6 py-3 rounded-3xl hover:bg-[#063a87] hover:text-white transition-all duration-500 ease-out hover:scale-110 transform font-medium shadow-lg hover:shadow-xl">
+              <Link href="/Contact">
+                <button className="bg-[#0747A1] cursor-pointer text-white px-6 py-3 rounded-3xl hover:bg-[#063a87] transition-all duration-500 ease-out hover:scale-110 transform text-[15px] shadow-lg hover:shadow-xl relative overflow-hidden group">
+                  <span className="relative z-10">Contact Us</span>
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
+                </button>
+              </Link>
+             <Link href="/Sermons">
+              <button className="border-[2px] cursor-pointer border-[#0747A1] text-[15px] text-[#0747A1] px-6 py-3 rounded-3xl hover:bg-[#063a87] hover:text-white transition-all duration-500 ease-out hover:scale-110 transform font-medium shadow-lg hover:shadow-xl">
                 Sermons
               </button>
+             </Link>
             </motion.div>
           </motion.div>
-          
+
           {/* Right side image - slides from right */}
-          <motion.div 
+          <motion.div
             className="flex justify-end"
             initial="hidden"
             animate={heroInView ? "visible" : "hidden"}
             variants={slideFromRight}
             transition={{ delay: 0.3 }}
           >
-            <Image 
-              src={Hero} 
-              alt="Church community" 
-              className="w-[100%] xl:w-[90%] transition-transform duration-700 hover:scale-110 hover:rotate-1 " 
+            <Image
+              src={Hero}
+              alt="Church community"
+              className="w-[100%] xl:w-[90%] transition-transform duration-700 hover:scale-110 hover:rotate-1 "
             />
           </motion.div>
         </div>
 
         {/* Video section - slides from bottom */}
-        <motion.div 
+        <motion.div
           ref={videoRef}
           className="py-5 pb-10 md:pb-14 md:py-7 md:pt-16 lg:py-10 xl:py-16 px-3 md:px-6 lg:px-0"
           initial="hidden"
@@ -325,9 +332,9 @@ export default function Home() {
           variants={slideFromBottom}
         >
           <div className="relative group cursor-pointer">
-            <Image 
-              src={Video} 
-              alt="Video presentation" 
+            <Image
+              src={Video}
+              alt="Video presentation"
               className="transition-all duration-700 group-hover:scale-105 group-hover:shadow-2xl transform rounded-xl"
             />
             <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-all duration-500 rounded-xl"></div>
@@ -340,22 +347,25 @@ export default function Home() {
         </motion.div>
 
         {/* About section */}
-        <div ref={aboutRef} className="py-5 xl:pt-28 flex flex-col gap-6 lg:flex-row lg:justify-center items-center px-3 md:px-6 lg:px-0">
+        <div
+          ref={aboutRef}
+          className="py-5 xl:pt-28 flex flex-col gap-6 lg:flex-row lg:justify-center items-center px-3 md:px-6 lg:px-0"
+        >
           {/* Left side content - slides from left */}
-          <motion.div 
+          <motion.div
             className="flex flex-col gap-7 lg:gap-5 lg:w-3/4"
             initial="hidden"
             animate={aboutInView ? "visible" : "hidden"}
             variants={staggerContainer}
           >
-            <motion.h2 
+            <motion.h2
               className="font-semibold text-2xl bg-gradient-to-r from-[#434147] to-[#0747A1] bg-clip-text text-transparent"
               variants={slideFromLeft}
             >
               About AFM Dallas
             </motion.h2>
-            
-            <motion.p 
+
+            <motion.p
               className="text-[14px] lg:text-[13px] xl:text-[15px] leading-relaxed"
               variants={slideFromLeft}
             >
@@ -365,8 +375,8 @@ export default function Home() {
               consectetur adipiscing elit dolor posuere vel venenatis eu sit
               massa volutpat massa rhoncus.
             </motion.p>
-            
-            <motion.div 
+
+            <motion.div
               className="py-5 grid grid-cols-1 md:grid-cols-2 md:gap-6 gap-4"
               variants={staggerContainer}
             >
@@ -374,19 +384,19 @@ export default function Home() {
                 { src: Vision, title: "Our Vision" },
                 { src: Mission, title: "Our Mission" },
                 { src: Values, title: "Our Values" },
-                { src: Motto, title: "Our Motto" }
+                { src: Motto, title: "Our Motto" },
               ].map((item, index) => (
-                <motion.div 
+                <motion.div
                   key={index}
                   className="flex flex-col gap-3 rounded-xl transition-all duration-500  border border-transparent group cursor-pointer"
                   variants={cardAnimation}
                   custom={index}
                 >
                   <div className="w-12 h-12  rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform duration-500">
-                    <Image 
-                      src={item.src} 
+                    <Image
+                      src={item.src}
                       alt={item.title}
-                      className="transition-transform duration-500 " 
+                      className="transition-transform duration-500 "
                     />
                   </div>
                   <h4 className="font-semibold text-lg group-hover:text-[#0747A1] transition-colors duration-300">
@@ -394,27 +404,28 @@ export default function Home() {
                   </h4>
                   <p className="text-[14px] lg:text-[13px] xl:text-[15px] text-gray-600">
                     Lorem ipsum dolor sit amet consectetur adipiscing elit dolor
-                    posuere vel venenatis eu sit massa volutpat massa rhoncus odio
-                    feugiat tellus.
+                    posuere vel venenatis eu sit massa volutpat massa rhoncus
+                    odio feugiat tellus.
                   </p>
                 </motion.div>
               ))}
             </motion.div>
           </motion.div>
-          
+
           {/* Right side image - slides from right */}
-          <motion.div 
-            className="py-5"
+          <motion.div
+            className="py-5 w-full lg:w-[50%]"
             initial="hidden"
             animate={aboutInView ? "visible" : "hidden"}
             variants={slideFromRight}
             transition={{ delay: 0.3 }}
+            
           >
             <div className="relative group">
-              <Image 
-                src={About} 
-                alt="About our church" 
-                className="transition-transform duration-700 group-hover:scale-105 group-hover:rotate-2 shadow-xl rounded-2xl" 
+              <Image
+                src={About}
+                alt="About our church"
+                className="transition-transform w-full  duration-700 group-hover:scale-105 group-hover:rotate-2 shadow-xl rounded-2xl"
               />
               <div className="absolute -inset-4 bg-gradient-to-r from-[#0747A1] to-[#D4AA49] rounded-2xl opacity-0 group-hover:opacity-20 blur-xl transition-all duration-500 -z-10"></div>
             </div>
@@ -422,7 +433,7 @@ export default function Home() {
         </div>
 
         {/* Events section */}
-        <motion.div 
+        <motion.div
           ref={eventsRef}
           className="flex flex-col gap-5 py-6 px-3 md:py-20 md:px-6 lg:px-0"
           initial="hidden"
@@ -430,16 +441,14 @@ export default function Home() {
           variants={staggerContainer}
         >
           {/* Header slides from left */}
-          <motion.div
-            variants={slideFromLeft}
-          >
+          <motion.div variants={slideFromLeft}>
             <h2 className="font-semibold text-2xl bg-gradient-to-r from-[#434147] to-[#0747A1] bg-clip-text text-transparent">
               Events
             </h2>
           </motion.div>
-          
+
           {/* Description slides from left */}
-          <motion.p 
+          <motion.p
             className="w-full lg:w-[50%] text-[14px] lg:text-[13px] xl:text-[15px] pb-5 leading-relaxed"
             variants={slideFromLeft}
           >
@@ -449,7 +458,7 @@ export default function Home() {
           </motion.p>
 
           {/* Events container slides from right */}
-          <motion.div 
+          <motion.div
             className="bg-gradient-to-br from-[#055594] via-[#0747A1] to-[#063a87] text-white px-6 py-5 rounded-2xl transition-all duration-700 hover:shadow-2xl hover:scale-[1.02] group"
             variants={slideFromRight}
           >
@@ -465,9 +474,9 @@ export default function Home() {
           </motion.div>
         </motion.div>
       </div>
-      
+
       {/* Donation Section */}
-      <motion.div 
+      <motion.div
         ref={donationRef}
         className="py-11 xl:pb-28"
         initial="hidden"
@@ -486,26 +495,26 @@ export default function Home() {
         >
           <div className="absolute inset-0 bg-gradient-to-br from-black/60 via-[#0747A1]/40 to-black/60 transition-all duration-700 group-hover:from-black/70 group-hover:via-[#0747A1]/50 group-hover:to-black/70"></div>
 
-          <motion.div 
+          <motion.div
             className="relative flex flex-col justify-center items-center px-3 z-10 space-y-6"
             variants={staggerContainer}
           >
             {/* Text elements slide from left */}
-            <motion.p 
+            <motion.p
               className="pb-2 text-[14px] lg:text-[13px] xl:text-[15px] tracking-widest uppercase opacity-90"
               variants={slideFromLeft}
             >
               Support the work of God
             </motion.p>
-            
-            <motion.h2 
+
+            <motion.h2
               className="font-medium text-[24px] md:text-3xl text-center w-[90%] md:w-[60%] lg:w-[30%] leading-tight"
               variants={slideFromLeft}
             >
               Help us Raise In-order to raise those in-need
             </motion.h2>
-            
-            <motion.p 
+
+            <motion.p
               className="text-sm text-center text-[14px] lg:text-[13px] xl:text-[15px] pb-2 w-full md:w-[60%] lg:w-[35%] opacity-90 leading-relaxed"
               variants={slideFromLeft}
             >
@@ -513,9 +522,9 @@ export default function Home() {
               posuere vel venenatis eu sit massa volutpat massa rhoncus odio
               feugiat tellus, elit massa sed.
             </motion.p>
-            
+
             {/* Button slides from right */}
-            <motion.button 
+            <motion.button
               className="bg-[#0747A1] w-[60%] md:w-[25%] py-3 rounded-full transition-all duration-500 hover:scale-110 hover:shadow-2xl transform font-medium relative overflow-hidden group"
               variants={slideFromRight}
             >

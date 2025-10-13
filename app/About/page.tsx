@@ -138,6 +138,7 @@ import Ab3 from "../../public/Images/Ab3.svg";
 import Mission from "../../public/Images/Mission.png"
 import Motto from "../../public/Images/Moto.png";
 import Values from "../../public/Images/Values.png";
+import Link from "next/link";
 
 // Smooth animation variants
 const slideFromLeft: Variants = {
@@ -233,9 +234,11 @@ const Page = () => {
           </motion.p>
           
           <motion.div variants={slideFromLeft}>
-            <button className="border border-[#0747A1] text-[#0747A1] px-4 py-2 rounded-3xl hover:bg-[#063a87] hover:text-white transition-all duration-300 ease-out hover:scale-105 transform font-medium">
+           <Link href="/ Sermons">
+            <button className="border cursor-pointer border-[#0747A1] text-[#0747A1] px-4 py-2 rounded-3xl hover:bg-[#063a87] hover:text-white transition-all duration-300 ease-out hover:scale-105 transform font-medium">
               Sermons
             </button>
+           </Link>
           </motion.div>
         </motion.div>
         

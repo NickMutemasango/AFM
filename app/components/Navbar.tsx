@@ -768,10 +768,10 @@ const Navbar = () => {
 
   const navLinks = [
     { href: "/", label: "Home" },
-    { href: "/Sermons", label: "Events" },
-    { href: "/Give", label: "Sermons" },
-    { href: "/Shop", label: "Give" },
-    { href: "/Events", label: "Shop" },
+    { href: "/Events", label: "Events" },
+    { href: "/Sermons", label: "Sermons" },
+    { href: "/Give", label: "Give" },
+    { href: "/Shop", label: "Shop" },
   ];
 
   const aboutLinks = [
