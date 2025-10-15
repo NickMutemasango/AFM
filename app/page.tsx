@@ -299,11 +299,11 @@ export default function Home() {
                   <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
                 </button>
               </Link>
-             <Link href="/Sermons">
-              <button className="border-[2px] cursor-pointer border-[#0747A1] text-[15px] text-[#0747A1] px-6 py-3 rounded-3xl hover:bg-[#063a87] hover:text-white transition-all duration-500 ease-out hover:scale-110 transform font-medium shadow-lg hover:shadow-xl">
-                Sermons
-              </button>
-             </Link>
+              <Link href="/Sermons">
+                <button className="border-[2px] cursor-pointer border-[#0747A1] text-[15px] text-[#0747A1] px-6 py-3 rounded-3xl hover:bg-[#063a87] hover:text-white transition-all duration-500 ease-out hover:scale-110 transform font-medium shadow-lg hover:shadow-xl">
+                  Sermons
+                </button>
+              </Link>
             </motion.div>
           </motion.div>
 
@@ -419,7 +419,6 @@ export default function Home() {
             animate={aboutInView ? "visible" : "hidden"}
             variants={slideFromRight}
             transition={{ delay: 0.3 }}
-            
           >
             <div className="relative group">
               <Image
@@ -458,18 +457,43 @@ export default function Home() {
           </motion.p>
 
           {/* Events container slides from right */}
-          <motion.div
-            className="bg-gradient-to-br from-[#055594] via-[#0747A1] to-[#063a87] text-white px-6 py-5 rounded-2xl transition-all duration-700 hover:shadow-2xl hover:scale-[1.02] group"
-            variants={slideFromRight}
-          >
+          <motion.div className="bg-gradient-to-br from-[#055594] via-[#0747A1] to-[#063a87] text-white px-6 py-5 rounded-2xl transition-all duration-700 hover:shadow-2xl hover:scale-[1.02] group">
             <h2 className="tracking-wider pb-6 text-[20px] md:text-[24px] font-light">
               Upcoming Events
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-8 xl:gap-6 pb-4">
-              <Events />
-              <Events />
-              <Events />
-              <Events />
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.1 }}
+                viewport={{ once: true, margin: "-50px" }}
+              >
+                <Events />
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.3 }}
+                viewport={{ once: true, margin: "-50px" }}
+              >
+                <Events />
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.5 }}
+                viewport={{ once: true, margin: "-50px" }}
+              >
+                <Events />
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.7 }}
+                viewport={{ once: true, margin: "-50px" }}
+              >
+                <Events />
+              </motion.div>
             </div>
           </motion.div>
         </motion.div>

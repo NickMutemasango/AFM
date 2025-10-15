@@ -132,8 +132,10 @@ import ContactInput from "../components/ContactInputs";
 import Bluetick from "@/public/Images/Tick.svg";
 import Link from "next/link";
 import Tick from "@/public/Images/Tick.png";
-import { motion, type Variants, MotionConfig } from "framer-motion";
-import Side from "@/public/Images/ContactSide.png"
+import { motion, type Variants, MotionConfig, useInView } from "framer-motion";
+import Side from "@/public/Images/ContactSide.png";
+import { useRef } from "react";
+import { staggerContainer, slideFromLeft,slideFromRight } from "@/variants";
 
 // Type-safe cubic-bezier tuple for Transition.ease
 const EASE_OUT_EXPO = [0.22, 1, 0.36, 1] as const;
@@ -161,14 +163,7 @@ const fadeUp: Variants = {
   },
 };
 
-const fadeLeft: Variants = {
-  hidden: { opacity: 0, x: -24 },
-  show: {
-    opacity: 1,
-    x: 0,
-    transition: { duration: 1.1, ease: EASE_OUT_EXPO },
-  },
-};
+
 
 const fadeIn: Variants = {
   hidden: { opacity: 0 },
@@ -195,43 +190,51 @@ const scaleIn: Variants = {
 };
 
 const Page = () => {
+  const heroRef = useRef(null);
+
+  // Check if elements are in view - only keeping the ones you actually use
+  const heroInView = useInView(heroRef, { once: true, margin: "-50px" });
+
   return (
     // Global default transition for cohesive pacing
-    <MotionConfig transition={{ duration: 0.9, ease: "easeOut" }}>
+    <MotionConfig>
       <motion.div
+        ref={heroRef}
         className="xl:max-w-5xl   lg:max-w-4xl px-3 md:px-6 lg:px-0  mx-auto"
-        variants={container}
-        initial="hidden"
-        whileInView="show"
-        viewport={{ once: true, amount: 0.2 }}
       >
         {/* Hero */}
         <div className=" grid grid-cols-1  py-10 lg:py-5 lg:grid-cols-2 gap-7 mb-20">
           <motion.div
             className="flex flex-col gap-4 justify-center"
-            variants={fadeLeft}
+            initial="hidden"
+            animate={heroInView ? "visible" : "hidden"}
+            variants={staggerContainer}
           >
-            <Text
-              text="Reach Out. Connect. Visit."
-              textClassName="text-blue-600"
-              lineClassName="bg-blue-600"
-            />
+            <motion.div variants={slideFromLeft}>
+              <Text
+                text="Reach Out. Connect. Visit."
+                textClassName="text-blue-600"
+                lineClassName="bg-blue-600"
+              />
+            </motion.div>
             <motion.h2
               className="text-[#434147] font-semibold text-[30px] xl:text-[40px]"
-              variants={fadeUp}
+              variants={slideFromLeft}
+              transition={{ delay: 0.1 }}
             >
               We’d Love to Hear From You
             </motion.h2>
             <motion.p
               className="text-[14px] lg:text-[13px] xl:text-[15px]"
-              variants={fadeUp}
+              variants={slideFromLeft}
+              transition={{ delay: 0.2 }}
             >
               Whether you have questions, need prayer, or want to learn more
               about our ministry, we&apos;re here for you; feel free to get in
               touch, stop by during one of our services, or follow us online to
               walk this journey of faith together.
             </motion.p>
-            <motion.div variants={fadeUp}>
+            <motion.div variants={slideFromLeft} transition={{ delay: 0.3 }}>
               <motion.button
                 whileHover={{ y: -2, scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
@@ -242,7 +245,13 @@ const Page = () => {
             </motion.div>
           </motion.div>
 
-          <motion.div className="flex justify-end" variants={fadeIn}>
+          <motion.div
+            className="flex justify-end"
+            initial="hidden"
+            animate={heroInView ? "visible" : "hidden"}
+            variants={slideFromRight}
+            transition={{ delay: 0.3 }}
+          >
             <Image src={Hero} alt="" className="w-[100%] xl:w-[90%]" />
           </motion.div>
         </div>
@@ -250,20 +259,27 @@ const Page = () => {
         {/* Info + Form */}
         <div className="flex flex-col md:flex-col-reverse lg:flex-row justify-center items-center gap-10 pb-10 xl:pb-20">
           {/* Contact card */}
-          
+
           <motion.div
             className="bg-[#0747A1] relative md:w-[55%] lg:w-[45%] xl:w-[40%] text-white py-16 xl:py-16 xl:px-8 px-4 rounded-md"
             variants={fadeRight}
           >
-            <Image src={Side} alt="" className="absolute bottom-0 right-0 w-[30%] md:w-[20%] xl:w-[30%]"/>
-            <div>
+            <Image
+              src={Side}
+              alt=""
+              className="absolute bottom-0 right-0 w-[30%] md:w-[20%] xl:w-[30%]"
+            />
+            <motion.div   variants={container}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true, amount: 0.4 }}>
               <h2 className="text-2xl font-semibold pb-2">
                 Contact Information
               </h2>
               <p className="text-[#C9C9C9] pb-10 xl:pb-20 md:pb-16 text-[14px] lg:text-[13px] xl:text-[15px]">
                 Say something to start a live chat!
               </p>
-            </div>
+            </motion.div>
 
             <motion.div
               className="flex flex-col justify-center pb-14"
@@ -272,26 +288,24 @@ const Page = () => {
               whileInView="show"
               viewport={{ once: true, amount: 0.2 }}
             >
-              <motion.div
-                className=""
-                variants={scaleIn}
-              >
-              
-                <Link href="tel:+263 123 456 789" className="flex mb-7  items-center gap-3">
+              <motion.div className="" variants={scaleIn}>
+                <Link
+                  href="tel:+263 123 456 789"
+                  className="flex mb-7  items-center gap-3"
+                >
                   <Image src={Call} alt="" />
-                <p className="text-[14px] lg:text-[13px] xl:text-[15px]">
-                  +263 123 456 789
-                </p>
+                  <p className="text-[14px] lg:text-[13px] xl:text-[15px]">
+                    +263 123 456 789
+                  </p>
                 </Link>
               </motion.div>
 
-              <motion.div
-                
-                variants={scaleIn}
-              >
-               
-                <Link href="mailto:demo@gmail.com" className="flex mb-7  items-center gap-3">
-                 <Image src={Email} alt="" />
+              <motion.div variants={scaleIn}>
+                <Link
+                  href="mailto:demo@gmail.com"
+                  className="flex mb-7  items-center gap-3"
+                >
+                  <Image src={Email} alt="" />
                   <p className="text-[14px] lg:text-[13px] xl:text-[15px]">
                     demo@gmail.com
                   </p>
