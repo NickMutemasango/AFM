@@ -37,24 +37,6 @@ const slideFromRight: Variants = {
   },
 };
 
-const slideFromBottom: Variants = {
-  hidden: { opacity: 0, y: 80 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.8, ease: "easeOut" },
-  },
-};
-
-const scaleIn: Variants = {
-  hidden: { opacity: 0, scale: 0.8 },
-  visible: {
-    opacity: 1,
-    scale: 1,
-    transition: { duration: 0.6, ease: "easeOut" },
-  },
-};
-
 const staggerContainer: Variants = {
   hidden: { opacity: 0 },
   visible: {
@@ -65,37 +47,18 @@ const staggerContainer: Variants = {
   },
 };
 
-const cardAnimation: Variants = {
-  hidden: { opacity: 0, y: 60 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.6, ease: "easeOut" },
-  },
-};
-
-const page = () => {
-  // Refs for each section
+const EventsPage = () => {
+  // Changed from 'page' to 'EventsPage'
+  // Refs for each section - only keeping the ones you actually use
   const heroRef = useRef(null);
-  const videoRef = useRef(null);
-  const aboutRef = useRef(null);
-  const eventsRef = useRef(null);
-  const donationRef = useRef(null);
 
-  // Check if elements are in view
+  // Check if elements are in view - only keeping the ones you actually use
   const heroInView = useInView(heroRef, { once: true, margin: "-50px" });
-  const videoInView = useInView(videoRef, { once: true, margin: "-50px" });
-  const aboutInView = useInView(aboutRef, { once: true, margin: "-50px" });
-  const eventsInView = useInView(eventsRef, { once: true, margin: "-50px" });
-  const donationInView = useInView(donationRef, {
-    once: true,
-    margin: "-50px",
-  });
 
   return (
     <div
       ref={heroRef}
-      className="xl:max-w-5xl   lg:max-w-4xl px-3 md:px-6 lg:px-0 mx-auto"
+      className="xl:max-w-5xl lg:max-w-4xl px-3 md:px-6 lg:px-0 mx-auto"
     >
       <div className=" grid grid-cols-1  py-10 lg:py-5 xl:pb-28 lg:grid-cols-2 gap-7">
         <motion.div
@@ -125,8 +88,8 @@ const page = () => {
           >
             Step into moments that matter — where faith comes alive through
             community, worship, and action. Our events are more than dates on a
-            calendar; they’re opportunities to grow, serve, and be transformed
-            together.
+            calendar; they&apos;re opportunities to grow, serve, and be
+            transformed together.
           </motion.p>
           <motion.div variants={slideFromLeft} transition={{ delay: 0.3 }}>
             <button className="bg-[#0747A1] text-white px-4 py-2 rounded-3xl hover:bg-[#063a87] transition-colors duration-200 font-medium">
@@ -141,7 +104,13 @@ const page = () => {
           transition={{ delay: 0.3 }}
           className="flex justify-end"
         >
-          <Image src={Hero} alt="" className="w-[100%] xl:w-[90%]" />
+          <Image
+            src={Hero}
+            alt="Events Hero Image"
+            className="w-[100%] xl:w-[90%]"
+            width={500} // Added width
+            height={300} // Added height
+          />
         </motion.div>
       </div>
 
@@ -150,93 +119,92 @@ const page = () => {
       </div>
 
       <div className="py-10 grid grid-cols-1 md:grid-cols-2 gap-5 lg:grid-cols-3 lg:gap-6">
-  <motion.div
-    initial={{ opacity: 0, y: 30 }}
-    whileInView={{ opacity: 1, y: 0 }}
-    transition={{ duration: 0.6, delay: 0.1 }}
-    viewport={{ once: true, margin: "-50px" }}
-  >
-    <UpcomingEvents imageSrc={Event1} />
-  </motion.div>
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.1 }}
+          viewport={{ once: true, margin: "-50px" }}
+        >
+          <UpcomingEvents imageSrc={Event1} />
+        </motion.div>
 
-  <motion.div
-    initial={{ opacity: 0, y: 30 }}
-    whileInView={{ opacity: 1, y: 0 }}
-    transition={{ duration: 0.6, delay: 0.2 }}
-    viewport={{ once: true, margin: "-50px" }}
-  >
-    <UpcomingEvents imageSrc={Event2} />
-  </motion.div>
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          viewport={{ once: true, margin: "-50px" }}
+        >
+          <UpcomingEvents imageSrc={Event2} />
+        </motion.div>
 
-  <motion.div
-    initial={{ opacity: 0, y: 30 }}
-    whileInView={{ opacity: 1, y: 0 }}
-    transition={{ duration: 0.6, delay: 0.3 }}
-    viewport={{ once: true, margin: "-50px" }}
-  >
-    <UpcomingEvents imageSrc={Event3} />
-  </motion.div>
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+          viewport={{ once: true, margin: "-50px" }}
+        >
+          <UpcomingEvents imageSrc={Event3} />
+        </motion.div>
 
-  <motion.div
-    initial={{ opacity: 0, y: 30 }}
-    whileInView={{ opacity: 1, y: 0 }}
-    transition={{ duration: 0.6, delay: 0.4 }}
-    viewport={{ once: true, margin: "-50px" }}
-  >
-    <UpcomingEvents imageSrc={Event4} />
-  </motion.div>
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+          viewport={{ once: true, margin: "-50px" }}
+        >
+          <UpcomingEvents imageSrc={Event4} />
+        </motion.div>
 
-  <motion.div
-    initial={{ opacity: 0, y: 30 }}
-    whileInView={{ opacity: 1, y: 0 }}
-    transition={{ duration: 0.6, delay: 0.5 }}
-    viewport={{ once: true, margin: "-50px" }}
-  >
-    <UpcomingEvents imageSrc={Event5} />
-  </motion.div>
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.5 }}
+          viewport={{ once: true, margin: "-50px" }}
+        >
+          <UpcomingEvents imageSrc={Event5} />
+        </motion.div>
 
-  <motion.div
-    initial={{ opacity: 0, y: 30 }}
-    whileInView={{ opacity: 1, y: 0 }}
-    transition={{ duration: 0.6, delay: 0.6 }}
-    viewport={{ once: true, margin: "-50px" }}
-  >
-    <UpcomingEvents imageSrc={Event6} />
-  </motion.div>
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.6 }}
+          viewport={{ once: true, margin: "-50px" }}
+        >
+          <UpcomingEvents imageSrc={Event6} />
+        </motion.div>
 
-  <motion.div
-    initial={{ opacity: 0, y: 30 }}
-    whileInView={{ opacity: 1, y: 0 }}
-    transition={{ duration: 0.6, delay: 0.7 }}
-    viewport={{ once: true, margin: "-50px" }}
-  >
-    <UpcomingEvents imageSrc={Event7} />
-  </motion.div>
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.7 }}
+          viewport={{ once: true, margin: "-50px" }}
+        >
+          <UpcomingEvents imageSrc={Event7} />
+        </motion.div>
 
-  <motion.div
-    initial={{ opacity: 0, y: 30 }}
-    whileInView={{ opacity: 1, y: 0 }}
-    transition={{ duration: 0.6, delay: 0.8 }}
-    viewport={{ once: true, margin: "-50px" }}
-  >
-    <UpcomingEvents imageSrc={Event8} />
-  </motion.div>
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.8 }}
+          viewport={{ once: true, margin: "-50px" }}
+        >
+          <UpcomingEvents imageSrc={Event8} />
+        </motion.div>
 
-  <motion.div
-    initial={{ opacity: 0, y: 30 }}
-    whileInView={{ opacity: 1, y: 0 }}
-    transition={{ duration: 0.6, delay: 0.9 }}
-    viewport={{ once: true, margin: "-50px" }}
-  >
-    <UpcomingEvents imageSrc={Event9} />
-  </motion.div>
-</div>
-     
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.9 }}
+          viewport={{ once: true, margin: "-50px" }}
+        >
+          <UpcomingEvents imageSrc={Event9} />
+        </motion.div>
+      </div>
     </div>
   );
 };
 
-export default page;
+export default EventsPage; // Changed export to match new component name
 
 // "use client";
 

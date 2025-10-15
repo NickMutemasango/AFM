@@ -204,14 +204,14 @@ const slideFromBottom: Variants = {
   },
 };
 
-const scaleIn: Variants = {
-  hidden: { opacity: 0, scale: 0.8 },
-  visible: {
-    opacity: 1,
-    scale: 1,
-    transition: { duration: 0.6, ease: "easeOut" },
-  },
-};
+// const scaleIn: Variants = {
+//   hidden: { opacity: 0, scale: 0.8 },
+//   visible: {
+//     opacity: 1,
+//     scale: 1,
+//     transition: { duration: 0.6, ease: "easeOut" },
+//   },
+// };
 
 const staggerContainer: Variants = {
   hidden: { opacity: 0 },

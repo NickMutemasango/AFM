@@ -142,6 +142,7 @@
 
 import { useRef } from "react";
 import { motion, useInView, Variants } from "framer-motion";
+import Image from "next/image";
 
 interface Leader {
   id: number;
@@ -289,7 +290,7 @@ const LeadersGrid: React.FC<LeadersGridProps> = ({ limit }) => {
       initial="hidden"
       animate={gridInView ? "visible" : "hidden"}
     >
-      {displayLeaders.map((leader, index) => (
+      {displayLeaders.map((leader) => (
         <motion.div 
           key={leader.id} 
           className="relative bg-white rounded-2xl p-8 text-center shadow-lg hover:shadow-2xl transition-all duration-500 group overflow-hidden"
@@ -358,11 +359,13 @@ const LeadersGrid: React.FC<LeadersGridProps> = ({ limit }) => {
                 }}
               >
                 {/* Using regular img tag instead of Next.js Image */}
-                <img
-                  src={leader.image}
-                  alt={leader.name}
-                  className="w-full h-full object-cover"
-                />
+               <Image
+  src={leader.image}
+  alt={leader.name}
+  width={400}  // Add width
+  height={400} // Add height
+  className="w-full h-full object-cover"
+/>
                 
                 {/* Image overlay on hover */}
                 <motion.div 
