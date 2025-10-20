@@ -283,9 +283,8 @@ export default function Home() {
               variants={slideFromLeft}
               transition={{ delay: 0.2 }}
             >
-              Lorem ipsum dolor sit amet consectetur adipiscing elit dolor
-              posuere vel venenatis eu sit massa volutpat massa rhoncus odio
-              feugiat tellus, elit massa sed.
+              We are a Spirit-filled, Bible-rooted church where lives are
+              changed, burdens are lifted and hope is restored.
             </motion.p>
 
             <motion.div
@@ -369,11 +368,11 @@ export default function Home() {
               className="text-[14px] lg:text-[13px] xl:text-[15px] leading-relaxed"
               variants={slideFromLeft}
             >
-              Lorem ipsum dolor sit amet consectetur adipiscing elit dolor
-              posuere vel venenatis eu sit massa volutpat massa rhoncus odio
-              feugiat tellus, elit massa sed. Lorem ipsum dolor sit amet
-              consectetur adipiscing elit dolor posuere vel venenatis eu sit
-              massa volutpat massa rhoncus.
+              Apostolic Faith Mission Dallas is a Christ-centered, Spirit-led
+              community of believers committed to worship, prayer, and teaching
+              the truth of God's Word. Our doors and hearts are open to all,
+              offering a place of refuge, restoration, and growth in faith and
+              purpose through Christ our Lord.
             </motion.p>
 
             <motion.div
@@ -403,9 +402,7 @@ export default function Home() {
                     {item.title}
                   </h4>
                   <p className="text-[14px] lg:text-[13px] xl:text-[15px] text-gray-600">
-                    Lorem ipsum dolor sit amet consectetur adipiscing elit dolor
-                    posuere vel venenatis eu sit massa volutpat massa rhoncus
-                    odio feugiat tellus.
+                    Lorem ipsum, dolor sit amet consectetur adipisicing.
                   </p>
                 </motion.div>
               ))}
@@ -451,9 +448,10 @@ export default function Home() {
             className="w-full lg:w-[50%] text-[14px] lg:text-[13px] xl:text-[15px] pb-5 leading-relaxed"
             variants={slideFromLeft}
           >
-            Lorem ipsum dolor sit amet consectetur adipiscing elit dolor posuere
-            vel venenatis eu sit massa volutpat massa rhoncus odio feugiat
-            tellus, elit massa sed.
+            At AFM Dallas, every event is an opportunity to grow together in
+            love, to serve, to worship and to strengthen one another in faith.
+            Check out our upcoming events and find the perfect way to join us in
+            walking in love together.
           </motion.p>
 
           {/* Events container slides from right */}
@@ -542,9 +540,11 @@ export default function Home() {
               className="text-sm text-center text-[14px] lg:text-[13px] xl:text-[15px] pb-2 w-full md:w-[60%] lg:w-[35%] opacity-90 leading-relaxed"
               variants={slideFromLeft}
             >
-              Lorem ipsum dolor sit amet consectetur adipiscing elit dolor
-              posuere vel venenatis eu sit massa volutpat massa rhoncus odio
-              feugiat tellus, elit massa sed.
+              Stretch a hand and give generously to support our community, fuel
+              our programs and bring hope to those who need it most. Every gift,
+              big or small, makes a difference. Together, we can create lasting
+              impact and transform lives. Join us in making this campaign a
+              success!
             </motion.p>
 
             {/* Button slides from right */}

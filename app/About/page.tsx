@@ -122,7 +122,6 @@
 
 // export default page;
 
-
 "use client";
 
 import React, { useRef } from "react";
@@ -135,7 +134,7 @@ import Vision from "../../public/Images/Vision.svg";
 import Ab1 from "../../public/Images/Ab1.svg";
 import Ab2 from "../../public/Images/Ab2.png";
 import Ab3 from "../../public/Images/Ab3.svg";
-import Mission from "../../public/Images/Mission.png"
+import Mission from "../../public/Images/Mission.png";
 import Motto from "../../public/Images/Moto.png";
 import Values from "../../public/Images/Values.png";
 import Link from "next/link";
@@ -143,26 +142,26 @@ import Link from "next/link";
 // Smooth animation variants
 const slideFromLeft: Variants = {
   hidden: { opacity: 0, x: -40 },
-  visible: { 
-    opacity: 1, 
+  visible: {
+    opacity: 1,
     x: 0,
-    transition: { duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }
-  }
+    transition: { duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] },
+  },
 };
 
 const slideFromRight: Variants = {
   hidden: { opacity: 0, x: 40 },
-  visible: { 
-    opacity: 1, 
+  visible: {
+    opacity: 1,
     x: 0,
-    transition: { duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }
-  }
+    transition: { duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] },
+  },
 };
 
 // const slideFromBottom: Variants = {
 //   hidden: { opacity: 0, y: 40 },
-//   visible: { 
-//     opacity: 1, 
+//   visible: {
+//     opacity: 1,
 //     y: 0,
 //     transition: { duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }
 //   }
@@ -173,18 +172,18 @@ const staggerContainer: Variants = {
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.15
-    }
-  }
+      staggerChildren: 0.15,
+    },
+  },
 };
 
 const cardAnimation: Variants = {
   hidden: { opacity: 0, y: 30 },
-  visible: { 
-    opacity: 1, 
+  visible: {
+    opacity: 1,
     y: 0,
-    transition: { duration: 0.5, ease: [0.25, 0.46, 0.45, 0.94] }
-  }
+    transition: { duration: 0.5, ease: [0.25, 0.46, 0.45, 0.94] },
+  },
 };
 
 const Page = () => {
@@ -201,9 +200,12 @@ const Page = () => {
   return (
     <div className="xl:max-w-5xl lg:max-w-4xl px-3 md:px-6 lg:px-0 mx-auto">
       {/* Hero Section */}
-      <div ref={heroRef} className="grid grid-cols-1 py-10 lg:py-5 lg:grid-cols-2 gap-7">
+      <div
+        ref={heroRef}
+        className="grid grid-cols-1 py-10 lg:py-5 lg:grid-cols-2 gap-7"
+      >
         {/* Left content - slides from left */}
-        <motion.div 
+        <motion.div
           className="flex flex-col gap-4 justify-center"
           initial="hidden"
           animate={heroInView ? "visible" : "hidden"}
@@ -216,49 +218,49 @@ const Page = () => {
               lineClassName="bg-[#C83E30]"
             />
           </motion.div>
-          
-          <motion.h2 
+
+          <motion.h2
             className="text-[#434147] font-semibold text-[30px] xl:text-[40px]"
             variants={slideFromLeft}
           >
             Together in faith, moving forward with purpose
           </motion.h2>
-          
-          <motion.p 
+
+          <motion.p
             className="text-[14px] lg:text-[13px] xl:text-[15px]"
             variants={slideFromLeft}
           >
-            Lorem ipsum dolor sit amet consectetur adipiscing elit dolor posuere
-            vel venenatis eu sit massa volutpat massa rhoncus odio feugiat
-            tellus, elit massa sed.
+            We are a faith-driven church community passionate about worship,
+            prayer, and building strong families in Christ. Everyone is welcome
+            to grow, serve, and find purpose through the love of Jesus Christ.
           </motion.p>
-          
+
           <motion.div variants={slideFromLeft}>
-           <Link href="/ Sermons">
-            <button className="border cursor-pointer border-[#0747A1] text-[#0747A1] px-4 py-2 rounded-3xl hover:bg-[#063a87] hover:text-white transition-all duration-300 ease-out hover:scale-105 transform font-medium">
-              Sermons
-            </button>
-           </Link>
+            <Link href="/ Sermons">
+              <button className="border cursor-pointer border-[#0747A1] text-[#0747A1] px-4 py-2 rounded-3xl hover:bg-[#063a87] hover:text-white transition-all duration-300 ease-out hover:scale-105 transform font-medium">
+                Sermons
+              </button>
+            </Link>
           </motion.div>
         </motion.div>
-        
+
         {/* Right image - slides from right */}
-        <motion.div 
+        <motion.div
           className="flex justify-end"
           initial="hidden"
           animate={heroInView ? "visible" : "hidden"}
           variants={slideFromRight}
         >
-          <Image 
-            src={Hero} 
-            alt="" 
-            className="w-[100%] xl:w-[90%] transition-transform duration-700 hover:scale-105" 
+          <Image
+            src={Hero}
+            alt=""
+            className="w-[100%] xl:w-[90%] transition-transform duration-700 hover:scale-105"
           />
         </motion.div>
       </div>
 
       {/* About Section */}
-      <motion.div 
+      <motion.div
         ref={aboutRef}
         className="py-5 lg:py-16 flex flex-col gap-7 xl:gap-5 lg:flex-row lg:items-center"
         initial="hidden"
@@ -266,47 +268,47 @@ const Page = () => {
         variants={staggerContainer}
       >
         {/* Left content - slides from left */}
-        <motion.div 
+        <motion.div
           className="flex lg:w-[70%] flex-col gap-3 pb-3"
           variants={staggerContainer}
         >
-          <motion.h2 
+          <motion.h2
             className="font-semibold text-2xl pb-3"
             variants={slideFromLeft}
           >
             About AFM Dallas
           </motion.h2>
-          
-          <motion.p 
+
+          <motion.p
             className="text-[14px] lg:text-[13px] xl:text-[16px]"
             variants={slideFromLeft}
           >
-            Lorem ipsum dolor sit amet consectetur adipiscing elit dolor posuere
-            vel venenatis eu sit massa volutpat massa rhoncus odio feugiat
-            tellus, elit massa sed. Lorem ipsum dolor sit amet consectetur
-            adipiscing elit dolor posuere vel venenatis eu sit massa volutpat
-            massa rhoncus.
+            In a world longing for truth and connection, Apostolic Faith Mission
+            Dallas stands as a beacon of hope and restoration. We are a
+            Spirit-filled, Bible-rooted church committed to the presence of God,
+            the power of prayer, and the unity of believers.
           </motion.p>
-          
-          <motion.p 
+
+          <motion.p
             className="text-[14px] lg:text-[13px] xl:text-[16px]"
             variants={slideFromLeft}
           >
-            Lorem ipsum dolor sit amet consectetur adipiscing elit dolor posuere
-            vel venenatis eu sit massa volutpat massa rhoncus odio feugiat
-            tellus, elit massa sed. Lorem ipsum dolor{" "}
+            Our doors are open to all seeking healing, purpose, and a deeper
+            relationship with Jesus Christ. Guided by Pentecostal tradition, we
+            pursue passionate worship, life-changing teaching, and outreach that
+            touches lives.
           </motion.p>
-          
-          <motion.p 
+
+          <motion.p
             className="text-[14px] lg:text-[13px] xl:text-[16px]"
             variants={slideFromLeft}
           >
-            Lorem ipsum dolor sit amet consectetur adipiscing elit dolor posuere
-            vel venenatis eu sit massa volutpat massa rhoncus odio feugiat
-            tellus, elit massa sed.
+            We believe the Holy Spirit empowers every believer to live boldly
+            and love deeply. This is more than a gathering, it's a home. At AFM
+            Dallas, you are seen, known and loved.
           </motion.p>
-          
-          <motion.p 
+{/* 
+          <motion.p
             className="text-[14px] lg:text-[13px] xl:text-[16px]"
             variants={slideFromLeft}
           >
@@ -314,24 +316,21 @@ const Page = () => {
             vel venenatis eu sit massa volutpat massa rhoncus odio feugiat
             tellus, elit massa sed. Lorem ipsum dolor sit amet consectetur
             adipiscing elit dolor posuere vel venenatis eu s
-          </motion.p>
+          </motion.p> */}
         </motion.div>
-        
+
         {/* Right image - slides from right */}
-        <motion.div
-          variants={slideFromRight}
-          className="flex justify-end"
-        >
-          <Image 
-            src={About} 
-            alt="" 
-            className="w-full lg:w-[100%] xl:w-[100%] transition-transform duration-700 hover:scale-105" 
+        <motion.div variants={slideFromRight} className="flex justify-end">
+          <Image
+            src={About}
+            alt=""
+            className="w-full lg:w-[100%] xl:w-[100%] transition-transform duration-700 hover:scale-105"
           />
         </motion.div>
       </motion.div>
 
       {/* Mission & Values Section */}
-      <motion.div 
+      <motion.div
         ref={missionRef}
         className="py-10 flex flex-col-reverse gap-7 xl:gap-16 lg:flex-row"
         initial="hidden"
@@ -339,37 +338,34 @@ const Page = () => {
         variants={staggerContainer}
       >
         {/* Left images - slides from left with staggered children */}
-        <motion.div 
-          className="flex flex-col gap-3"
-          variants={staggerContainer}
-        >
+        <motion.div className="flex flex-col gap-3" variants={staggerContainer}>
           <motion.div variants={slideFromLeft}>
-            <Image 
-              src={Ab1} 
-              alt="" 
-              className="w-full transition-transform duration-700 hover:scale-105" 
+            <Image
+              src={Ab1}
+              alt=""
+              className="w-full transition-transform duration-700 hover:scale-105"
             />
           </motion.div>
-          
+
           <motion.div variants={slideFromLeft}>
-            <Image 
-              src={Ab2} 
-              alt="" 
-              className="w-full -mt-[20%] transition-transform duration-700 hover:scale-105" 
+            <Image
+              src={Ab2}
+              alt=""
+              className="w-full -mt-[20%] transition-transform duration-700 hover:scale-105"
             />
           </motion.div>
-          
+
           <motion.div variants={slideFromLeft}>
-            <Image 
-              src={Ab3} 
-              alt="" 
-              className="w-full transition-transform duration-700 hover:scale-105" 
+            <Image
+              src={Ab3}
+              alt=""
+              className="w-full transition-transform duration-700 hover:scale-105"
             />
           </motion.div>
         </motion.div>
-        
+
         {/* Right content - slides from right with staggered children */}
-        <motion.div 
+        <motion.div
           className="flex flex-col lg:w-[60%]"
           variants={staggerContainer}
         >
@@ -377,17 +373,17 @@ const Page = () => {
             { src: Mission, title: "Our Mission" },
             { src: Vision, title: "Our Vision" },
             { src: Motto, title: "Our Motto" },
-            { src: Values, title: "Our Values" }
+            { src: Values, title: "Our Values" },
           ].map((item, index) => (
-            <motion.div 
+            <motion.div
               key={index}
               className="flex flex-col gap-3 py-3 transition-all duration-500 hover:scale-105 hover:bg-gray-50 rounded-lg p-4"
               variants={cardAnimation}
             >
-              <Image 
-                src={item.src} 
-                alt="" 
-                className="transition-transform duration-500 hover:scale-110" 
+              <Image
+                src={item.src}
+                alt=""
+                className="transition-transform duration-500 hover:scale-110"
               />
               <h4 className="font-semibold">{item.title}</h4>
               <p className="text-[14px] lg:text-[13px] xl:text-[15px]">
