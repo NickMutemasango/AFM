@@ -175,6 +175,7 @@ import Motto from "../public/Images/Moto.png";
 import Link from "next/link";
 import Events from "./components/Events";
 import HomeBackground from "../public/Images/Help.svg";
+import InfoCard from "./components/InfoCard";
 
 // Animation variants for sliding from sides
 const slideFromLeft: Variants = {
@@ -370,42 +371,43 @@ export default function Home() {
             >
               Apostolic Faith Mission Dallas is a Christ-centered, Spirit-led
               community of believers committed to worship, prayer, and teaching
-              the truth of God&apos;s Word. Our doors and hearts are open to all,
-              offering a place of refuge, restoration, and growth in faith and
-              purpose through Christ our Lord.
+              the truth of God&apos;s Word. Our doors and hearts are open to
+              all, offering a place of refuge, restoration, and growth in faith
+              and purpose through Christ our Lord.
             </motion.p>
 
             <motion.div
-              className="py-5 grid grid-cols-1 md:grid-cols-2 md:gap-6 gap-4"
+              className="py-5 grid grid-cols-1 md:grid-cols-2 md:gap-6 gap-6"
               variants={staggerContainer}
             >
-              {[
-                { src: Vision, title: "Our Vision" },
-                { src: Mission, title: "Our Mission" },
-                { src: Values, title: "Our Values" },
-                { src: Motto, title: "Our Motto" },
-              ].map((item, index) => (
-                <motion.div
-                  key={index}
-                  className="flex flex-col gap-3 rounded-xl transition-all duration-500  border border-transparent group cursor-pointer"
-                  variants={cardAnimation}
-                  custom={index}
-                >
-                  <div className="w-12 h-12  rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform duration-500">
-                    <Image
-                      src={item.src}
-                      alt={item.title}
-                      className="transition-transform duration-500 "
-                    />
-                  </div>
-                  <h4 className="font-semibold text-lg group-hover:text-[#0747A1] transition-colors duration-300">
-                    {item.title}
-                  </h4>
-                  <p className="text-[14px] lg:text-[13px] xl:text-[15px] text-gray-600">
-                    Lorem ipsum, dolor sit amet consectetur adipisicing.
-                  </p>
-                </motion.div>
-              ))}
+              <InfoCard
+                src={Vision}
+                title="Our Vision"
+                description="To create a world where technology and humanity converge to build sustainable futures for generations to come."
+                index={0}
+                cardAnimation={cardAnimation}
+              />
+              <InfoCard
+                src={Mission}
+                title="Our Mission"
+                description="Empowering communities through innovative solutions, fostering growth, and creating meaningful impact every day."
+                index={1}
+                cardAnimation={cardAnimation}
+              />
+              <InfoCard
+                src={Values}
+                title="Our Values"
+                description="Integrity, innovation, collaboration, and excellence guide every decision we make and action we take."
+                index={2}
+                cardAnimation={cardAnimation}
+              />
+              <InfoCard
+                src={Motto}
+                title="Our Motto"
+                description="Building bridges, breaking barriers - together we rise and achieve the extraordinary."
+                index={3}
+                cardAnimation={cardAnimation}
+              />
             </motion.div>
           </motion.div>
 
