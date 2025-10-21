@@ -304,7 +304,7 @@ const Page = () => {
             variants={slideFromLeft}
           >
             We believe the Holy Spirit empowers every believer to live boldly
-            and love deeply. This is more than a gathering, it's a home. At AFM
+            and love deeply. This is more than a gathering, it&apos;s a home. At AFM
             Dallas, you are seen, known and loved.
           </motion.p>
 {/* 

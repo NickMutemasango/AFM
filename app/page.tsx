@@ -370,7 +370,7 @@ export default function Home() {
             >
               Apostolic Faith Mission Dallas is a Christ-centered, Spirit-led
               community of believers committed to worship, prayer, and teaching
-              the truth of God's Word. Our doors and hearts are open to all,
+              the truth of God&apos;s Word. Our doors and hearts are open to all,
               offering a place of refuge, restoration, and growth in faith and
               purpose through Christ our Lord.
             </motion.p>
