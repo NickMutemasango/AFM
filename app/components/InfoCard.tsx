@@ -35,7 +35,7 @@ const InfoCard = ({
       <h4 className="font-semibold text-lg group-hover:text-[#0747A1] transition-colors duration-300">
         {title || "Our Value"}
       </h4>
-      <p className="text-[14px] lg:text-[13px] xl:text-[15px] text-gray-600">
+      <p className="text-[14px] nav-link lg:text-[13px] xl:text-[15px] text-gray-600">
         {description}
       </p>
     </motion.div>

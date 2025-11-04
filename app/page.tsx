@@ -280,7 +280,7 @@ export default function Home() {
             </motion.h2>
 
             <motion.p
-              className="text-[#434147]"
+              className="text-[#434147] nav-link"
               variants={slideFromLeft}
               transition={{ delay: 0.2 }}
             >

@@ -742,17 +742,24 @@
 
 // export default Navbar;
 
+
+
+
+
 "use client";
 
 import React, { useState } from "react";
 import Logo from "../../public/Images/Logo.svg";
 import Image from "next/image";
 import Link from "next/link";
+import { useTheme } from "../contexts/ThemeContext"; // Adjust path as needed
+import ThemeToggle from "./ThemeToggle"; // Adjust path as needed
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isAboutOpen, setIsAboutOpen] = useState(false);
   const [isMobileAboutOpen, setIsMobileAboutOpen] = useState(false);
+  const { isDarkMode } = useTheme(); // Get the theme state
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -780,7 +787,7 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className="bg-white relative">
+    <nav className={`bg-white  relative transition-colors duration-300 ${isDarkMode ? 'dark:bg-gray-900' : ''}`}>
       {/* Outer container with max width */}
       <div className="max-w-6xl lg:max-w-4xl mx-auto">
         <div className="px-3 md:px-6 lg:px-14">
@@ -802,7 +809,7 @@ const Navbar = () => {
               {/* Home Link */}
               <Link
                 href="/"
-                className="text-gray-700 hover:text-[#0747A1] font-medium transition-colors duration-200"
+                className="text-[#434147] nav-link dark:text-gray-300 hover:text-[#0747A1] dark:hover:text-blue-400 font-medium transition-colors duration-200"
               >
                 Home
               </Link>
@@ -811,7 +818,7 @@ const Navbar = () => {
               <div className="relative">
                 <button
                   onClick={toggleAboutDropdown}
-                  className="flex items-center text-gray-700 hover:text-[#0747A1] font-medium transition-colors duration-200 focus:outline-none"
+                  className="flex items-center text-[#434147] nav-link dark:text-gray-300 hover:text-[#0747A1] dark:hover:text-blue-400 font-medium transition-colors duration-200 focus:outline-none"
                 >
                   About
                   <svg
@@ -833,12 +840,12 @@ const Navbar = () => {
 
                 {/* Dropdown Menu */}
                 {isAboutOpen && (
-                  <div className="absolute top-full left-0 mt-2 w-56 bg-white rounded-lg shadow-lg border border-gray-200 py-2 z-50">
+                  <div className="absolute top-full left-0 mt-2 w-56 bg-white dark:bg-gray-800 rounded-lg shadow-lg border border-gray-200 dark:border-gray-700 py-2 z-50">
                     {aboutLinks.map((link) => (
                       <Link
                         key={link.href}
                         href={link.href}
-                        className="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-[#0747A1] transition-colors duration-200"
+                        className="block px-4  py-2 text-[#434147] dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-gray-700 hover:text-[#0747A1] dark:hover:text-blue-400 transition-colors duration-200"
                         onClick={() => setIsAboutOpen(false)}
                       >
                         {link.label}
@@ -853,27 +860,36 @@ const Navbar = () => {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className="text-gray-700 hover:text-[#0747A1] font-medium transition-colors duration-200"
+                  className="nav-link dark:text-gray-300 hover:text-[#0747A1] dark:hover:text-blue-400 font-medium transition-colors duration-200"
                 >
                   {link.label}
                 </Link>
               ))}
             </div>
 
-            {/* Desktop Contact Button - Hidden on mobile */}
-            <div className="hidden lg:block cursor-pointer">
-              <Link href="/Contact" className="cursor-pointer">
-                <button className="bg-[#0747A1] cursor-pointer text-white px-4 py-2 rounded-3xl hover:bg-[#063a87] transition-colors duration-200 font-medium">
-                  Contact Us
-                </button>
-              </Link>
+            {/* Desktop Right Side - Contact Button & Theme Toggle */}
+            <div className="hidden lg:flex lg:items-center lg:space-x-4">
+              {/* Theme Toggle */}
+              <ThemeToggle />
+              
+              {/* Contact Button */}
+              <div className="cursor-pointer">
+                <Link href="/Contact" className="cursor-pointer">
+                  <button className="bg-[#0747A1] dark:bg-blue-600 cursor-pointer text-white px-4 py-2 rounded-3xl hover:bg-[#063a87] dark:hover:bg-blue-700 transition-colors duration-200 font-medium">
+                    Contact Us
+                  </button>
+                </Link>
+              </div>
             </div>
 
             {/* Mobile menu button - Hidden on desktop */}
-            <div className="lg:hidden">
+            <div className="lg:hidden flex items-center space-x-4">
+              {/* Theme Toggle for Mobile */}
+              <ThemeToggle />
+              
               <button
                 onClick={toggleMenu}
-                className="text-gray-700 hover:text-[#0747A1] focus:outline-none focus:ring-2 focus:ring-[#0747A1] p-2 rounded z-50 relative"
+                className="text-[#434147] dark:text-gray-300 hover:text-[#0747A1] dark:hover:text-blue-400 focus:outline-none focus:ring-2 focus:ring-[#0747A1] p-2 rounded z-50 relative"
                 aria-label="Toggle menu"
                 aria-expanded={isMenuOpen}
               >
@@ -920,32 +936,13 @@ const Navbar = () => {
 
         {/* Menu Panel */}
         <div
-          className={`absolute top-0 right-0 h-full w-80 bg-white shadow-xl transform transition-transform duration-300 ease-in-out ${
+          className={`absolute top-0 right-0 h-full w-80 bg-white dark:bg-gray-800 shadow-xl transform transition-transform duration-300 ease-in-out ${
             isMenuOpen ? "translate-x-0" : "translate-x-full"
           }`}
         >
           <div className="flex flex-col h-full">
-            {/* Close button - Removed duplicate */}
             <div className="flex justify-end p-4">
-              {/* <button
-                onClick={() => setIsMenuOpen(false)}
-                className="text-gray-700 hover:text-[#0747A1] p-2 rounded"
-                aria-label="Close menu"
-              >
-                <svg
-                  className="w-6 h-6"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M6 18L18 6M6 6l12 12"
-                  />
-                </svg>
-              </button> */}
+              {/* Close button area - you can add one if needed */}
             </div>
 
             {/* Navigation Links */}
@@ -954,17 +951,17 @@ const Navbar = () => {
                 {/* Home Link */}
                 <Link
                   href="/"
-                  className="text-gray-700 hover:text-[#0747A1] font-medium text-lg py-2 transition-colors duration-200 border-b border-gray-100"
+                  className="text-[#434147] dark:text-gray-300 hover:text-[#0747A1] dark:hover:text-blue-400 font-medium text-lg py-2 transition-colors duration-200 border-b border-gray-100 dark:border-gray-700"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   Home
                 </Link>
                 
                 {/* About Section with Dropdown Arrow in Mobile */}
-                <div className="border-b border-gray-100">
+                <div className="border-b border-gray-100 dark:border-gray-700">
                   <button
                     onClick={toggleMobileAboutDropdown}
-                    className="flex items-center justify-between w-full text-gray-700 hover:text-[#0747A1] font-medium text-lg py-2 transition-colors duration-200"
+                    className="flex items-center justify-between w-full text-[#434147] dark:text-gray-300 hover:text-[#0747A1] dark:hover:text-blue-400 font-medium text-lg py-2 transition-colors duration-200"
                   >
                     <span>About</span>
                     <svg
@@ -992,7 +989,7 @@ const Navbar = () => {
                       <Link
                         key={link.href}
                         href={link.href}
-                        className="text-gray-600 hover:text-[#0747A1] font-medium text-base py-1 transition-colors duration-200"
+                        className="text-[#434147] dark:text-gray-400 hover:text-[#0747A1] dark:hover:text-blue-400 font-medium text-base py-1 transition-colors duration-200"
                         onClick={() => {
                           setIsMenuOpen(false);
                           setIsMobileAboutOpen(false);
@@ -1009,7 +1006,7 @@ const Navbar = () => {
                   <Link
                     key={link.href}
                     href={link.href}
-                    className="text-gray-700 hover:text-[#0747A1] font-medium text-lg py-2 transition-colors duration-200 border-b border-gray-100"
+                    className="text-[#434147] dark:text-gray-300 hover:text-[#0747A1] dark:hover:text-blue-400 font-medium text-lg py-2 transition-colors duration-200 border-b border-gray-100 dark:border-gray-700"
                     onClick={() => setIsMenuOpen(false)}
                   >
                     {link.label}
@@ -1019,10 +1016,10 @@ const Navbar = () => {
             </div>
 
             {/* Contact Button */}
-            <div className="p-6 border-t border-gray-200">
+            <div className="p-6 border-t border-gray-200 dark:border-gray-700">
               <Link href="/Contact" className="cursor-pointer">
                 <button
-                  className="bg-[#0747A1] text-white w-full py-3 rounded-3xl hover:bg-[#063a87] transition-colors duration-200 font-medium"
+                  className="bg-[#0747A1] dark:bg-blue-600 text-white w-full py-3 rounded-3xl hover:bg-[#063a87] dark:hover:bg-blue-700 transition-colors duration-200 font-medium"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   Contact Us

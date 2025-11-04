@@ -79,7 +79,7 @@ export default function LeadersPage() {
 
   return (
     <motion.div 
-      className="py-12 bg-gradient-to-b from-white to-gray-50"
+      className="py-12 "
       initial="hidden"
       animate="visible"
       variants={staggerContainer}

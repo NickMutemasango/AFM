@@ -57,45 +57,50 @@
 
 import React from "react";
 import Image, { StaticImageData } from "next/image";
+import { useTheme } from "../contexts/ThemeContext";
 
 interface UpcomingEventsProps {
   imageSrc: StaticImageData;
 }
 
 const UpcomingEvents: React.FC<UpcomingEventsProps> = ({ imageSrc }) => {
+
+   const { isDarkMode } = useTheme(); // Get the theme state
+
+
   return (
-    <div className="flex flex-col gap-2 mb-5 shadow-md">
+    <div className={`flex flex-col ${isDarkMode ? 'dark:bg-gray-800' : ''} gap-2 mb-5 shadow-md `}>
       <Image src={imageSrc} alt="Upcoming event" />
-      <div className="px-3 py-2 pb-4">
+      <div className="px-3 py-2 pb-4 ">
         <h2 className="font-semibold text-[21px] xl:text-[18px] text-[#434147]">
           April 2025
         </h2>
         <div className="flex gap-4 py-2">
-          <div className="flex flex-col justify-center items-center text-[#4341473D]">
+          <div className="flex nav-link flex-col justify-center items-center text-[#4341473D]">
             <p>mon</p>
             <p>2</p>
           </div>
-          <div className="flex flex-col justify-center items-center text-[#4341473D]">
+          <div className="flex flex-col nav-link justify-center items-center text-[#4341473D]">
             <p>tue</p>
             <p>3</p>
           </div>
-          <div className="flex flex-col justify-center items-center text-[#4341473D]">
+          <div className="flex flex-col nav-link justify-center items-center text-[#4341473D]">
             <p>wed</p>
             <p>4</p>
           </div>
-          <div className="flex flex-col bg-[#0747A1] rounded-xl py-[2px] px-2 justify-center items-center text-white">
+          <div className="flex flex-col nav-link bg-[#0747A1] rounded-xl py-[2px] px-2 justify-center items-center text-white">
             <p>thu</p>
             <p>5</p>
           </div>
-          <div className="flex flex-col justify-center items-center text-[#4341473D]">
+          <div className="flex flex-col nav-link justify-center items-center text-[#4341473D]">
             <p>fri</p>
             <p>6</p>
           </div>
-          <div className="flex flex-col justify-center items-center text-[#4341473D]">
+          <div className="flex flex-col nav-link justify-center items-center text-[#4341473D]">
             <p>sat</p>
             <p>7</p>
           </div>
-          <div className="flex flex-col justify-center items-center text-[#4341473D]">
+          <div className="flex flex-col nav-link justify-center items-center text-[#4341473D]">
             <p>sun</p>
             <p>8</p>
           </div>
