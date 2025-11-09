@@ -368,11 +368,11 @@ const Page = () => {
             </motion.div>
 
             <motion.div className="pb-16" variants={fadeIn}>
-              <p className="text-[#434147] text-[14px] pb-2">Message</p>
+              <p className="text-[#434147] nav-link text-[14px] pb-2">Message</p>
               <input
                 type="text"
                 placeholder="Write your message here "
-                className="text-[#999999] text-[14px] pb-3 outline-0"
+                className="text-[#999999] nav-link text-[14px] pb-3 outline-0"
               />
               <hr className="text-[#EBEBEB] " />
             </motion.div>

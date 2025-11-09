@@ -17,6 +17,7 @@
 // export default Product
 import React from 'react'
 import Image from 'next/image'
+import { useTheme } from "../contexts/ThemeContext";
 
 interface ProductProps {
   imageSrc: string;
@@ -35,8 +36,11 @@ const Product: React.FC<ProductProps> = ({
   price,
   imageAlt = "Product image"
 }) => {
+
+    const { isDarkMode } = useTheme(); // Get the theme state
+
   return (
-    <div className='flex flex-col gap-1'>
+    <div className={`flex flex-col gap-1 ${isDarkMode ? 'dark:bg-gray-800 ' : ''}`}>
       <Image 
         src={imageSrc} 
         alt={imageAlt} 
@@ -44,10 +48,12 @@ const Product: React.FC<ProductProps> = ({
         height={200}
         className="w-full h-auto"
       />
-      <p className='text-[#AFADB5]  text-[14px] lg:text-[13px] xl:text-[15px]'>{category}</p>
+      <div className={`${isDarkMode ? 'dark:pl-3 ' : ''}`}>
+        <p className='text-[#AFADB5] pt-3  text-[14px] lg:text-[13px] xl:text-[15px]'>{category}</p>
       <h2 className='text-[20px] font-semibold font-sans'>{title}</h2>
       <p className='text-[#AFADB5]  text-[14px] lg:text-[13px] xl:text-[15px]'>{description}</p>
-      <p className='font-semibold  font-sans text-[20px] '>{price}</p>
+      <p className='font-semibold  font-sans text-[20px] pb-3'>{price}</p>
+      </div>
     </div>
   )
 }

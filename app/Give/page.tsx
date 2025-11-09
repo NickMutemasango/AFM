@@ -154,7 +154,7 @@ const Page = () => {
     transition={{ delay: 0.4 }}
     className="flex justify-center pt-10 pb-4 text-[#313131]"
   >
-    <p className="text-[14px] lg:text-[13px] xl:text-[15px]">
+    <p className="text-[14px] nav-link lg:text-[13px] xl:text-[15px]">
       Stuck on the form?
       <span className="underline cursor-pointer">
         Let&apos;s call you

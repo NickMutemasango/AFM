@@ -142,14 +142,18 @@
 
 import { useRef } from "react";
 import { motion, useInView, Variants } from "framer-motion";
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 import { useTheme } from "../contexts/ThemeContext";
+import Leader1 from '@/public/Images/Leaders/Leader1.jpg'
+import Leader2 from '@/public/Images/Leaders/Leader2.jpg'
+import Leader3 from '@/public/Images/Leaders/Leader3.jpg'
+import Leader4 from '@/public/Images/Leaders/Leader4.jpg'
 
 interface Leader {
   id: number;
   name: string;
   role: string;
-  image: string;
+  image: StaticImageData;
   email: string;
   phone: string;
 }
@@ -245,7 +249,7 @@ const particlePositions = [
 const LeadersGrid: React.FC<LeadersGridProps> = ({ limit }) => {
   const gridRef = useRef(null);
   const gridInView = useInView(gridRef, { once: true, margin: "-50px" });
-  const { isDarkMode } = useTheme(); // Get the theme state
+  const { isDarkMode } = useTheme(); 
 
   const leaders: Leader[] = [
     {
@@ -253,25 +257,26 @@ const LeadersGrid: React.FC<LeadersGridProps> = ({ limit }) => {
       name: "Pastor Michael Johnson",
       role: "Senior Pastor",
       image:
-        "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&h=400&fit=crop&crop=face",
+        Leader1,
       email: "pastor.michael@afmchurch.org",
       phone: "+1 (555) 123-4567",
     },
     {
       id: 2,
-      name: "Sarah Williams",
-      role: "Worship Director",
+      name: "Pastor Johnson",
+      role: "Senior Pastor",
       image:
-        "https://cdn-jehol.nitrocdn.com/XBwbYFbRYVMjkUYSoaVcGgRdcPyjhKvO/assets/images/optimized/rev-33be1b1/www.acstechnologies.com/church-growth/wp-content/uploads/sites/5/2023/05/church-leadership-roles-and-responsibilities-930x620.jpg",
-      email: "sarah.williams@afmchurch.org",
-      phone: "+1 (555) 123-4568",
+        Leader2,
+      email: "pastor.johnson@afmchurch.org",
+      phone: "+1 (555) 123-4567",
     },
+   
     {
       id: 3,
       name: "David Chen",
       role: "Youth Pastor",
       image:
-        "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop&crop=face",
+        Leader3,
       email: "david.chen@afmchurch.org",
       phone: "+1 (555) 123-4569",
     },
@@ -280,7 +285,7 @@ const LeadersGrid: React.FC<LeadersGridProps> = ({ limit }) => {
       name: "Elder Robert Martinez",
       role: "Church Elder",
       image:
-        "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face",
+        Leader4,
       email: "robert.martinez@afmchurch.org",
       phone: "+1 (555) 123-4570",
     },
@@ -350,7 +355,7 @@ const LeadersGrid: React.FC<LeadersGridProps> = ({ limit }) => {
           </motion.div>
 
           {/* Image Container */}
-          <motion.div className="relative z-10 mb-6" variants={imageAnimation}>
+          <motion.div className="relative z-50 mb-6" variants={imageAnimation}>
             <div className="relative inline-block">
               <motion.div
                 className="w-28 h-28 rounded-full border-4 border-white shadow-2xl overflow-hidden mx-auto relative"
@@ -369,7 +374,7 @@ const LeadersGrid: React.FC<LeadersGridProps> = ({ limit }) => {
                   alt={leader.name}
                   width={400} // Add width
                   height={400} // Add height
-                  className="w-full h-full object-cover"
+                  className="w-full h-full  object-cover"
                 />
 
                 {/* Image overlay on hover */}
