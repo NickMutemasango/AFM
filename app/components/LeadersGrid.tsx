@@ -144,16 +144,17 @@ import { useRef } from "react";
 import { motion, useInView, Variants } from "framer-motion";
 import Image, { StaticImageData } from "next/image";
 import { useTheme } from "../contexts/ThemeContext";
-import Leader1 from '@/public/Images/Leaders/Leader1.jpg'
-import Leader2 from '@/public/Images/Leaders/Leader2.jpg'
-import Leader3 from '@/public/Images/Leaders/Leader3.jpg'
-import Leader4 from '@/public/Images/Leaders/Leader4.jpg'
+import Leader1 from "@/public/Images/Leaders/Leader1.jpg";
+import Leader2 from "@/public/Images/Leaders/Leader2.jpg";
+import Leader3 from "@/public/Images/Leaders/Leader3.jpg";
+import Leader4 from "@/public/Images/Leaders/Leader4.jpg";
 
 interface Leader {
   id: number;
   name: string;
   role: string;
   image: StaticImageData;
+  description: string;
   email: string;
   phone: string;
 }
@@ -168,7 +169,7 @@ const staggerContainer: Variants = {
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.15,
+      staggerChildren: 0.2,
     },
   },
 };
@@ -176,18 +177,14 @@ const staggerContainer: Variants = {
 const cardAnimation: Variants = {
   hidden: {
     opacity: 0,
-    y: 50,
-    scale: 0.9,
+    y: 60,
   },
   visible: {
     opacity: 1,
     y: 0,
-    scale: 1,
     transition: {
-      duration: 0.6,
+      duration: 0.8,
       ease: [0.25, 0.46, 0.45, 0.94],
-      type: "spring",
-      stiffness: 100,
     },
   },
 };
@@ -195,13 +192,11 @@ const cardAnimation: Variants = {
 const imageAnimation: Variants = {
   hidden: {
     opacity: 0,
-    scale: 0.8,
-    rotate: -5,
+    scale: 1.1,
   },
   visible: {
     opacity: 1,
     scale: 1,
-    rotate: 0,
     transition: {
       duration: 0.8,
       ease: "easeOut",
@@ -212,81 +207,58 @@ const imageAnimation: Variants = {
 const textAnimation: Variants = {
   hidden: {
     opacity: 0,
-    y: 20,
+    y: 30,
   },
   visible: {
     opacity: 1,
     y: 0,
     transition: {
-      duration: 0.5,
+      duration: 0.6,
       ease: "easeOut",
     },
   },
 };
-
-const contactAnimation: Variants = {
-  hidden: {
-    opacity: 0,
-    height: 0,
-  },
-  visible: {
-    opacity: 1,
-    height: "auto",
-    transition: {
-      duration: 0.4,
-      ease: "easeOut",
-    },
-  },
-};
-
-// Fixed particle positions to avoid hydration errors
-const particlePositions = [
-  { x: 50, y: 30 },
-  { x: 150, y: 80 },
-  { x: 80, y: 150 },
-];
 
 const LeadersGrid: React.FC<LeadersGridProps> = ({ limit }) => {
   const gridRef = useRef(null);
-  const gridInView = useInView(gridRef, { once: true, margin: "-50px" });
-  const { isDarkMode } = useTheme(); 
+  const gridInView = useInView(gridRef, { once: true, margin: "-100px" });
+  const { isDarkMode } = useTheme();
 
   const leaders: Leader[] = [
     {
       id: 1,
       name: "Pastor Michael Johnson",
       role: "Senior Pastor",
-      image:
-        Leader1,
+      image: Leader1,
       email: "pastor.michael@afmchurch.org",
+      description:"Dedicated servant of god with a passion for ministry",
       phone: "+1 (555) 123-4567",
     },
     {
       id: 2,
       name: "Pastor Johnson",
       role: "Senior Pastor",
-      image:
-        Leader2,
+      image: Leader3,
       email: "pastor.johnson@afmchurch.org",
+      description:"Dedicated servant of god with a passion for ministry",
       phone: "+1 (555) 123-4567",
     },
-   
     {
       id: 3,
       name: "David Chen",
       role: "Youth Pastor",
-      image:
-        Leader3,
+      image: Leader2,
       email: "david.chen@afmchurch.org",
+      description:"Dedicated servant of god with a passion for ministry",
       phone: "+1 (555) 123-4569",
     },
     {
       id: 4,
       name: "Elder Robert Martinez",
       role: "Church Elder",
-      image:
-        Leader4,
+      image: Leader4,
       email: "robert.martinez@afmchurch.org",
+      description:"Dedicated servant of god with a passion for ministry",
       phone: "+1 (555) 123-4570",
     },
   ];
@@ -294,213 +266,198 @@ const LeadersGrid: React.FC<LeadersGridProps> = ({ limit }) => {
   const displayLeaders = limit ? leaders.slice(0, limit) : leaders;
 
   return (
-    <motion.div
-      ref={gridRef}
-      className={`grid grid-cols-1  sm:grid-cols-2 lg:grid-cols-3  xl:grid-cols-4 gap-6`}
-      variants={staggerContainer}
-      initial="hidden"
-      animate={gridInView ? "visible" : "hidden"}
-    >
-      {displayLeaders.map((leader) => (
-        <motion.div
-          key={leader.id}
-          className={`relative ${
-            isDarkMode ? "dark:bg-gray-800" : ""
-          } rounded-2xl p-8 text-center shadow-lg hover:shadow-2xl transition-all duration-500 group overflow-hidden`}
-          variants={cardAnimation}
-          whileHover={{
-            y: -8,
-            scale: 1.02,
-            transition: {
-              type: "spring",
-              stiffness: 400,
-              damping: 25,
-            },
-          }}
-          whileTap={{ scale: 0.98 }}
-        >
-          {/* Animated Background Pattern */}
+    <div className="w-full">
+      <motion.div
+        ref={gridRef}
+        className="grid grid-cols-1 gap-16 max-w-7xl mx-auto"
+        variants={staggerContainer}
+        initial="hidden"
+        animate={gridInView ? "visible" : "hidden"}
+      >
+        {displayLeaders.map((leader, index) => (
           <motion.div
-            className="absolute inset-0 bg-gradient-to-br from-blue-50 via-white to-gray-50 opacity-0 group-hover:opacity-100"
-            initial={{ opacity: 0 }}
-            whileHover={{ opacity: 1 }}
-            transition={{ duration: 0.3 }}
-          />
-
-          {/* Floating particles effect - FIXED: Using consistent positions */}
-          <motion.div
-            className="absolute inset-0 opacity-0 group-hover:opacity-100"
-            initial={false}
-            whileHover={{ opacity: 1 }}
+            key={leader.id}
+            className={`relative ${
+              isDarkMode ? "dark:bg-gray-900" : "bg-white"
+            } rounded-3xl shadow-2xl hover:shadow-3xl transition-all duration-700 group overflow-hidden min-h-[500px]`}
+            variants={cardAnimation}
+            whileHover={{
+              y: -12,
+              transition: {
+                type: "spring",
+                stiffness: 300,
+                damping: 30,
+              },
+            }}
           >
-            {particlePositions.map((position, particleIndex) => (
-              <motion.div
-                key={particleIndex}
-                className="absolute w-2 h-2  bg-[#0747A1] rounded-full opacity-20"
-                style={{
-                  left: `${position.x}px`,
-                  top: `${position.y}px`,
-                }}
-                initial={{ scale: 0 }}
-                whileHover={{
-                  scale: [0, 1, 0],
-                  transition: {
-                    duration: 2,
-                    repeat: Infinity,
-                    delay: particleIndex * 0.6,
-                  },
-                }}
-              />
-            ))}
-          </motion.div>
+            {/* Background Gradient */}
+            <div className="absolute inset-0  opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
-          {/* Image Container */}
-          <motion.div className="relative z-50 mb-6" variants={imageAnimation}>
-            <div className="relative inline-block">
+            {/* Main Content Container */}
+            <div
+              className={`relative h-full flex flex-col lg:flex-row ${
+                index % 2 === 1 ? "lg:flex-row-reverse" : ""
+              }`}
+            >
+              {/* Image Section - Much Larger */}
               <motion.div
-                className="w-28 h-28 rounded-full border-4 border-white shadow-2xl overflow-hidden mx-auto relative"
-                whileHover={{
-                  scale: 1.05,
-                  rotate: [0, -2, 2, 0],
-                  transition: {
-                    duration: 0.5,
-                    rotate: { duration: 0.3 },
-                  },
-                }}
+                className="lg:w-1/2 relative overflow-hidden"
+                variants={imageAnimation}
               >
-                {/* Using regular img tag instead of Next.js Image */}
-                <Image
-                  src={leader.image}
-                  alt={leader.name}
-                  width={400} // Add width
-                  height={400} // Add height
-                  className="w-full h-full  object-cover"
-                />
-
-                {/* Image overlay on hover */}
                 <motion.div
-                  className="absolute inset-0 bg-gradient-to-br from-[#0747A1]/20 to-[#D4AA49]/20 rounded-full opacity-0"
-                  whileHover={{ opacity: 1 }}
-                  transition={{ duration: 0.3 }}
-                />
+                  className="w-full h-80 lg:h-full min-h-[400px] relative overflow-hidden"
+                  whileHover={{
+                    scale: 1.03,
+                    transition: {
+                      duration: 0.6,
+                      ease: "easeOut",
+                    },
+                  }}
+                >
+                  <Image
+                    src={leader.image}
+                    alt={leader.name}
+                    fill
+                    sizes="(max-width: 1024px) 100vw, 50vw"
+                    className="object-cover"
+                    priority
+                  />
+
+                  {/* Gradient Overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+
+                  {/* Shine Effect */}
+                  <motion.div
+                    className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-1000"
+                    whileHover={{ transition: { duration: 1.2 } }}
+                  />
+                </motion.div>
+
+                {/* Role Badge on Image */}
+                <motion.div
+                  className="absolute bottom-6 left-6 bg-white/90 backdrop-blur-sm px-4 py-2 rounded-full shadow-lg"
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.5 }}
+                >
+                  <span className="text-sm font-semibold text-gray-800 uppercase tracking-wide">
+                    {leader.role}
+                  </span>
+                </motion.div>
               </motion.div>
 
-              {/* Animated glow effect */}
-              <motion.div
-                className="absolute inset-0 rounded-full bg-gradient-to-r from-[#0747A1] to-[#D4AA49] opacity-0 blur-md -z-10"
-                whileHover={{
-                  opacity: [0, 0.1, 0],
-                  scale: [1, 1.2, 1],
-                }}
-                transition={{
-                  duration: 1.5,
-                  repeat: Infinity,
-                }}
-              />
+              {/* Content Section */}
+              <div className="lg:w-1/2 flex items-center p-8 lg:p-12">
+                <div className="w-full space-y-6">
+                  {/* Name */}
+                  <motion.h3
+                    className="text-3xl lg:text-4xl font-bold text-gray-900 group-hover:text-[#0747A1] transition-colors duration-500"
+                    variants={textAnimation}
+                  >
+                    {leader.name}
+                  </motion.h3>
+
+                  {/* Role for mobile */}
+                  <motion.p
+                    className="text-lg text-[#D4AA49] font-semibold uppercase tracking-wider lg:hidden"
+                    variants={textAnimation}
+                  >
+                    {leader.role}
+                  </motion.p>
+
+                  {/* Description/Bio Placeholder */}
+                  <motion.p
+                    className="nav-link text-lg leading-relaxed"
+                    variants={textAnimation}
+                    transition={{ delay: 0.2 }}
+                  >
+                   {leader.description}
+                  </motion.p>
+
+                  {/* Contact Information */}
+                  <motion.div
+                    className="space-y-4 pt-6 border-t border-gray-200"
+                    variants={textAnimation}
+                    transition={{ delay: 0.3 }}
+                  >
+                    <motion.div
+                      className="flex items-center gap-4 group/contact"
+                      whileHover={{ x: 5 }}
+                    >
+                      <div className="w-12 h-12 bg-[#0747A1] rounded-full flex items-center justify-center group-hover/contact:bg-[#D4AA49] transition-colors duration-300">
+                        <svg
+                          className="w-6 h-6 text-white"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                          />
+                        </svg>
+                      </div>
+                      <div>
+                        <p className="text-sm text-gray-500">Email</p>
+                        <a
+                          href={`mailto:${leader.email}`}
+                          className="nav-link hover:text-[#0747A1] transition-colors duration-300 font-medium"
+                        >
+                          {leader.email}
+                        </a>
+                      </div>
+                    </motion.div>
+
+                    <motion.div
+                      className="flex items-center gap-4 group/contact"
+                      whileHover={{ x: 5 }}
+                    >
+                      <div className="w-12 h-12 bg-[#0747A1] rounded-full flex items-center justify-center group-hover/contact:bg-[#D4AA49] transition-colors duration-300">
+                        <svg
+                          className="w-6 h-6 text-white"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
+                          />
+                        </svg>
+                      </div>
+                      <div>
+                        <p className="text-sm text-gray-500">Phone</p>
+                        <a
+                          href={`tel:${leader.phone}`}
+                          className="nav-link hover:text-[#0747A1] transition-colors duration-300 font-medium"
+                        >
+                          {leader.phone}
+                        </a>
+                      </div>
+                    </motion.div>
+                  </motion.div>
+                </div>
+              </div>
             </div>
-          </motion.div>
 
-          {/* Content */}
-          <div className="relative z-10">
-            <motion.h3
-              className="text-xl font-bold text-gray-900 mb-2 group-hover:text-[#0747A1] transition-colors duration-300"
-              variants={textAnimation}
-              whileHover={{ scale: 1.02 }}
-            >
-              {leader.name}
-            </motion.h3>
-
-            <motion.p
-              className="text-gray-600 nav-link  font-medium mb-6 text-sm uppercase tracking-wide"
-              variants={textAnimation}
-              whileHover={{ color: "#D4AA49" }}
-            >
-              {leader.role}
-            </motion.p>
-
-            {/* Contact Details with slide-in animation */}
+            {/* Decorative Elements */}
             <motion.div
-              className="border-t border-gray-200 pt-4 space-y-2"
-              variants={contactAnimation}
-              initial="hidden"
-              animate="visible"
-            >
-              <motion.div
-                className="text-xs text-gray-500"
-                whileHover={{ scale: 1.05 }}
-              >
-                <a
-                  href={`mailto:${leader.email}`}
-                  className="hover:text-[#0747A1] nav-link transition-colors duration-300 flex items-center justify-center gap-2"
-                >
-                  <motion.svg
-                    className="w-4 h-4"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                    whileHover={{ scale: 1.2 }}
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-                    />
-                  </motion.svg>
-                  {leader.email}
-                </a>
-              </motion.div>
+              className="absolute top-0 left-0 w-32 h-32 bg-gradient-to-br from-[#0747A1] to-[#D4AA49] rounded-full -translate-x-16 -translate-y-16 opacity-10 group-hover:opacity-20 transition-opacity duration-500"
+              whileHover={{ scale: 1.1 }}
+            />
 
-              <motion.div
-                className="text-xs text-gray-500"
-                whileHover={{ scale: 1.05 }}
-              >
-                <a
-                  href={`tel:${leader.phone}`}
-                  className="hover:text-[#0747A1] nav-link transition-colors duration-300 flex items-center justify-center gap-2"
-                >
-                  <motion.svg
-                    className="w-4 h-4"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                    whileHover={{ scale: 1.2 }}
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
-                    />
-                  </motion.svg>
-                  {leader.phone}
-                </a>
-              </motion.div>
-            </motion.div>
-          </div>
-
-          {/* Animated Corner Accent */}
-          <motion.div
-            className="absolute top-0 right-0 w-12 h-12 bg-gradient-to-bl from-[#0747A1] to-blue-400 rounded-bl-2xl opacity-0"
-            whileHover={{
-              opacity: 1,
-              scale: [1, 1.1, 1],
-              transition: { duration: 0.5 },
-            }}
-          />
-
-          {/* Bottom accent line */}
-          <motion.div
-            className="absolute bottom-0 left-1/2 w-0 h-1 bg-gradient-to-r from-[#0747A1] to-[#D4AA49] rounded-t-full"
-            whileHover={{
-              width: "80%",
-              x: "-40%",
-              transition: { duration: 0.4 },
-            }}
-          />
-        </motion.div>
-      ))}
-    </motion.div>
+            <motion.div
+              className="absolute bottom-0 right-0 w-24 h-24 bg-gradient-to-tr from-[#D4AA49] to-[#0747A1] rounded-full translate-x-12 translate-y-12 opacity-10 group-hover:opacity-20 transition-opacity duration-500"
+              whileHover={{ scale: 1.1 }}
+            />
+          </motion.div>
+        ))}
+      </motion.div>
+    </div>
   );
 };
 
