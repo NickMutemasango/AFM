@@ -383,14 +383,14 @@ export default function Home() {
               <InfoCard
                 src={Vision}
                 title="Our Vision"
-                description="To create a world where technology and humanity converge to build sustainable futures for generations to come."
+                description="To be a loving community of Multi racial and Multi cultural believers who reach out across generations with the Gospel of Jesus Christ"
                 index={0}
                 cardAnimation={cardAnimation}
               />
               <InfoCard
                 src={Mission}
                 title="Our Mission"
-                description="Empowering communities through innovative solutions, fostering growth, and creating meaningful impact every day."
+                description="To grow as Church that walks in love, studying scriptures, engaging in prayer, fellowship, praise, worship and thanksgiving and shares the gospel"
                 index={1}
                 cardAnimation={cardAnimation}
               />
@@ -404,7 +404,7 @@ export default function Home() {
               <InfoCard
                 src={Motto}
                 title="Our Motto"
-                description="Building bridges, breaking barriers - together we rise and achieve the extraordinary."
+                description="Walking in Love"
                 index={3}
                 cardAnimation={cardAnimation}
               />

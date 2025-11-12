@@ -604,14 +604,6 @@ import {
 // Unique, stable nav items for keys and routing
 type NavLink = { id: string; label: string; href: string };
 
-const leftLinks: NavLink[] = [
-  { id: "home", label: "Home", href: "/" },
-  { id: "departments", label: "Departments", href: "#" },
-  { id: "gallery", label: "Gallery", href: "#" },
-  { id: "shop", label: "Shop", href: "/Shop" },
-  { id: "community-service", label: "Community Service", href: "#" },
-];
-
 const rightLinks: NavLink[] = [
   { id: "about", label: "About", href: "/About" },
   { id: "events", label: "Events", href: "/Events" },
@@ -680,28 +672,13 @@ const Footer = () => {
             </motion.div>
 
             <motion.h2
-              className="font-semibold text-[20px] text-center lg:text-left py-5 pb-3 w-full lg:w-[25%] xl:w-[20%] lg:py-0"
+              className="font-semibold text-[18px] text-center lg:text-left py-5 pb-3 w-full lg:w-[25%] xl:w-[20%] lg:py-0"
               variants={itemRise}
             >
-              123 Church St. #23A Dallas, Texas 44635
+              2783 Valwood PKWY, FARMERS BRANCH, TX 75234
             </motion.h2>
 
-            <motion.nav
-              className="flex flex-col gap-2 pb-8 items-center text-white lg:items-start"
-              variants={listContainer}
-            >
-              {leftLinks.map((l) => (
-                <motion.div
-                  key={l.id}
-                  variants={itemRise}
-                  whileHover={{ x: 4 }}
-                >
-                  <Link href={l.href} aria-label={`Go to ${l.label}`}>
-                    {l.label}
-                  </Link>
-                </motion.div>
-              ))}
-            </motion.nav>
+          
 
             <motion.nav
               className="flex flex-col gap-2 pb-8 items-center lg:items-start"
@@ -782,8 +759,8 @@ const Footer = () => {
                 AFMDAL@gmail.com
               </a>
 
-              <motion.p variants={itemRise}>
-                © 2025 takue_thebrain. All rights reserved.
+              <motion.p variants={itemRise} className="pt-5 italic text-light">
+                © 2025 MarkEvolution. All rights reserved.
               </motion.p>
             </div>
           </motion.div>
