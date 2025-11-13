@@ -265,11 +265,16 @@ const LeadersGrid: React.FC<LeadersGridProps> = () => {
     }, {} as Record<string, Leader[]>);
   }, [leaders]);
 
+  const sectionRef = useRef(null);
+    const sectionInView = useInView(sectionRef, { once: true, margin: "-100px" });
+
   return (
+
+    
     <div className="w-full space-y-20">
       {Object.entries(groupedLeaders).map(([category, members]) => {
-        const sectionRef = useRef(null);
-        const sectionInView = useInView(sectionRef, { once: true, margin: "-100px" });
+        
+      
 
         return (
           <motion.section
