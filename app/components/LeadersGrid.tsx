@@ -9,6 +9,7 @@ import Leader2 from "@/public/Images/Leaders/Leader2.jpg";
 import Leader3 from "@/public/Images/Leaders/Leader3.jpg";
 import Leader4 from "@/public/Images/Leaders/Leader4.jpg";
 
+
 interface Leader {
   id: number;
   name: string;
@@ -266,10 +267,11 @@ const LeadersGrid: React.FC<LeadersGridProps> = () => {
   }, [leaders]);
 
   const sectionRef = useRef(null);
-    const sectionInView = useInView(sectionRef, { once: true, margin: "-100px" });
+    
 
   return (
 
+     
     
     <div className="w-full space-y-20">
       {Object.entries(groupedLeaders).map(([category, members]) => {
@@ -281,7 +283,7 @@ const LeadersGrid: React.FC<LeadersGridProps> = () => {
             key={category}
             ref={sectionRef}
             initial="hidden"
-            animate={sectionInView ? "visible" : "hidden"}
+            animate="visible"
             variants={staggerContainer}
             className="space-y-12"
           >
@@ -300,7 +302,7 @@ const LeadersGrid: React.FC<LeadersGridProps> = () => {
                   key={leader.id}
                   variants={cardAnimation}
                   className={`relative ${
-                    isDarkMode ? "dark:bg-gray-900" : "bg-white"
+                    isDarkMode ? "dark:bg-gray-900" : ""
                   } rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500 group overflow-hidden`}
                 >
                   <div
