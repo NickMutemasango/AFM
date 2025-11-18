@@ -189,25 +189,25 @@ const Search: React.FC<SearchProps> = ({ heading }) => {
         </motion.div>
 
         {/* Filter Button */}
-        <motion.button
+        {/* <motion.button
           className="flex gap-2 justify-center items-center bg-gray-50 rounded-2xl py-2 px-4 md:px-4 border border-transparent hover:border-[#0747A1] transition-colors duration-300 group relative"
           variants={buttonVariants}
           whileHover="hover"
           whileTap="tap"
           onClick={() => setIsFilterOpen(!isFilterOpen)}
-        >
-          <motion.div
+        > */}
+          {/* <motion.div
             animate={{ rotate: isFilterOpen ? 180 : 0 }}
             transition={{ duration: 0.3 }}
           >
             <Image src={Filter} alt="Filter" className="w-5 h-5" />
-          </motion.div>
-          <span className="text-gray-600 group-hover:text-[#0747A1] transition-colors duration-300">
+          </motion.div> */}
+          {/* <span className="text-gray-600 group-hover:text-[#0747A1] transition-colors duration-300">
             Filter
-          </span>
+          </span> */}
           
           {/* Filter pulse effect */}
-          <motion.div
+          {/* <motion.div
             className="absolute -top-1 -right-1 w-3 h-3 bg-[#D4AA49] rounded-full"
             animate={{
               scale: [1, 1.5, 1],
@@ -218,7 +218,7 @@ const Search: React.FC<SearchProps> = ({ heading }) => {
               repeat: Infinity,
             }}
           />
-        </motion.button>
+        </motion.button> */}
       </div>
 
       {/* Header and Sort Row */}
@@ -255,15 +255,15 @@ const Search: React.FC<SearchProps> = ({ heading }) => {
         </motion.div>
 
         {/* Sort Button */}
-        <motion.button
+        {/* <motion.button
           className="flex gap-2 justify-center items-center bg-gray-50 rounded-xl py-2 px-4 border border-transparent hover:border-[#0747A1] transition-colors duration-300 group relative overflow-hidden"
           variants={buttonVariants}
           whileHover="hover"
           whileTap="tap"
           onClick={() => setIsSortOpen(!isSortOpen)}
-        >
+        > */}
           {/* Background shine effect */}
-          <motion.div
+          {/* <motion.div
             className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -skew-x-12 -translate-x-full group-hover:translate-x-full"
             transition={{ duration: 1 }}
           />
@@ -277,7 +277,7 @@ const Search: React.FC<SearchProps> = ({ heading }) => {
           <span className="text-gray-600 text-sm group-hover:text-[#0747A1] transition-colors duration-300">
             Sort by
           </span>
-        </motion.button>
+        </motion.button> */}
       </div>
 
       {/* Filter Dropdown */}
