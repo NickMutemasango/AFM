@@ -328,27 +328,39 @@ export default function Home() {
         </div>
 
         {/* Video section - slides from bottom */}
-        <motion.div
-          ref={videoRef}
-          className="py-5 pb-10 md:pb-14 md:py-7 md:pt-16 lg:py-10 xl:py-16 px-3 md:px-6 lg:px-0"
-          initial="hidden"
-          animate={videoInView ? "visible" : "hidden"}
-          variants={slideFromBottom}
-        >
-          <div className="relative group cursor-pointer">
-            <Image
-              src={Video}
-              alt="Video presentation"
-              className="transition-all duration-700 group-hover:scale-105 group-hover:shadow-2xl transform rounded-xl"
-            />
-            <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-all duration-500 rounded-xl"></div>
-            <div className="absolute inset-0 flex items-center justify-center">
-              <div className="w-16 h-16 bg-white/90 rounded-full flex items-center justify-center group-hover:scale-110 group-hover:bg-white transition-all duration-500 shadow-2xl">
-                <div className="w-0 h-0 border-l-[12px] border-l-[#0747A1] border-y-[8px] border-y-transparent ml-1"></div>
-              </div>
-            </div>
-          </div>
-        </motion.div>
+       <motion.div
+  ref={videoRef}
+  className="py-5 pb-10 md:pb-14 md:py-7 md:pt-16 lg:py-10 xl:py-16 px-3 md:px-6 lg:px-0"
+  initial="hidden"
+  animate={videoInView ? "visible" : "hidden"}
+  variants={slideFromBottom}
+>
+  <div
+    className="relative group cursor-pointer"
+    onClick={() =>
+      window.open(
+        "https://drive.google.com/file/d/1qdEeMiXYyTc0Gez5qIHhtNGJs9fZKhIg/view?usp=sharing",
+        "_blank"
+      )
+    }
+  >
+    <Image
+      src={Video}
+      alt="Video presentation"
+      className="transition-all duration-700 group-hover:scale-105 group-hover:shadow-2xl transform rounded-xl"
+    />
+
+    <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-all duration-500 rounded-xl"></div>
+
+    {/* Play Button */}
+    <div className="absolute inset-0 flex items-center justify-center">
+      <div className="w-16 h-16 bg-white/90 rounded-full flex items-center justify-center group-hover:scale-110 group-hover:bg-white transition-all duration-500 shadow-2xl">
+        <div className="w-0 h-0 border-l-[12px] border-l-[#0747A1] border-y-[8px] border-y-transparent ml-1"></div>
+      </div>
+    </div>
+  </div>
+</motion.div>
+
 
         {/* About section */}
         <div
