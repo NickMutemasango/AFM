@@ -152,8 +152,7 @@ export default function LeadersPage() {
         {/* Leaders Grid Section */}
         <motion.div
           ref={gridRef}
-          initial="hidden"
-          animate={gridInView ? "visible" : "hidden"}
+         
           variants={scaleIn}
         >
           <LeadersGrid />
