@@ -77,7 +77,7 @@ const PersonalInfoForm: React.FC = () => {
       />
       
       <div className='flex gap-4'>
-        <button className="rounded-md bg-[#F2F2F2] w-[25%] xl:w-[13%] py-2">Back</button>
+        <button className="rounded-md dark:text-black bg-[#F2F2F2] w-[25%] xl:w-[13%] py-2">Back</button>
           <button className="rounded-md bg-[#0747A1] w-[25%] xl:w-[13%] py-2 text-white">Next</button>
       </div>
     </form>

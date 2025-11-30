@@ -169,9 +169,9 @@ import Hero from "../public/Images/Home.png";
 import Video from "../public/Images/Video.svg";
 import About from "../public/Images/About.svg";
 import Vision from "../public/Images/Vision.svg";
-import Mission from "../public/Images/Mission.png";
-import Values from "../public/Images/Values.png";
-import Motto from "../public/Images/Moto.png";
+import Mission from "../public/Images/Mission.svg";
+import Values from "../public/Images/Values.svg";
+import Motto from "../public/Images/Motto.svg";
 import Link from "next/link";
 import Events from "./components/Events";
 import HomeBackground from "../public/Images/Help.svg";
@@ -473,7 +473,7 @@ export default function Home() {
           </motion.p>
 
           {/* Events container slides from right */}
-          <motion.div className="bg-gradient-to-br from-[#055594] via-[#0747A1] to-[#063a87] text-white px-6 py-5 rounded-2xl transition-all duration-700 hover:shadow-2xl hover:scale-[1.02] group">
+          <motion.div className=" text-white px-6 py-5 rounded-2xl transition-all duration-700 hover:shadow-2xl hover:scale-[1.02] group">
             <h2 className="tracking-wider pb-6 text-[20px] md:text-[24px] font-light">
               Upcoming Events
             </h2>

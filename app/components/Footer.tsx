@@ -662,7 +662,7 @@ const Footer = () => {
       >
         <div className="xl:max-w-5xl lg:max-w-4xl mx-auto">
           <motion.div
-            className="flex flex-col lg:flex-row justify-between items-center lg:items-start gap-6"
+            className="flex flex-col lg:flex-row justify-between  lg:items-start gap-6"
             variants={listContainer}
             initial="hidden"
             animate="show"
